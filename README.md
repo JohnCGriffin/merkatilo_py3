@@ -31,7 +31,7 @@ You can play with that until you decide where to get your data.
 
 Major operations typically associated with technical market analysis involve time series that map dates to numeric values.  The mapping function is handled by the ```series``` class and dates are contained within the ```dateset``` class.  In merkatilo, dates are simply julian date integers.  For instance, the first day of the year 2000 can be constructed via ``(->jdate '2000-1-1)`` yielding 2451545.  The date integers where chosen to match Postgres julians.  A special but common time series in merkatilo is a signal series which answers date queries with only (#f, 1, -1).  
 
-The following example loads the SPY ETF, sets the active dates parameter, and does a 200 period cross to create a signal sseries showing buy and sell signals.  The utility operator dump prints out the SPY series, the 200 period smoothing and the cross.
+The following example loads the SPY ETF, sets the active dates parameter, and does a 200 period cross to create a signal series showing buy and sell signals.  The utility operator dump prints out the SPY series, the 200 period smoothing and the cross.
 
 ```
 from user_imports import *
