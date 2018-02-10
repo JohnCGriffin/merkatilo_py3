@@ -265,7 +265,7 @@ class dateset(object):
         return self.vec.__iter__()
 
     def __repr__(self):
-        return '<dateset:{}-{}>'.format(jdate_to_text(self.first_date()),
+        return '<dateset:{}..{}>'.format(jdate_to_text(self.first_date()),
                                          jdate_to_text(self.last_date()))
 
 class date_range(object):
