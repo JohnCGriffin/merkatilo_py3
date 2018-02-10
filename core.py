@@ -1,7 +1,10 @@
 
 __all__ = [ 'ymd_to_jdate',
             'jdate_to_ymd',
+            'first_date',
+            'last_date',
             'is_jdate',
+            'set_dates',
             'jdate_year',
             'jdate_month',
             'jdate_day',
@@ -9,15 +12,41 @@ __all__ = [ 'ymd_to_jdate',
             'jdate_to_text',
             'text_to_jdate',
             'to_jdate',
+            'nearest',
             'today',
             'is_valid_num',
             'MAX_DATE',
-            'MIN_DATE','series', 'vector_series', 'dates' 'dateset',
+            'MIN_DATE','series', 'vector_series', 'dates', 'dateset',
             'current_dates', 'date_scope', 'date_range' ]
 
 import datetime
 import unittest
 import threading
+import bisect
+
+def set_dates(item):
+    'shortcut to current_dates(dates(item))'
+    current_dates(dates(item))
+
+def first_date(dates=None):
+    dates = dates or current_dates()
+    return dates.vec[0]
+
+def last_date(dates=None):
+    dates = dates or current_dates()
+    return dates.vec[-1]
+
+def nearest(dt, dates=None, next=False):
+    dates = dates or current_dates()
+    dv = dates.vec
+    if dv[0] <= dt <= dv[-1]:
+        ndx = bisect.bisect_left(dv,dt)
+        found = dv[ndx]
+        if found == dt or next:
+            return found
+        return dv[ndx-1]
+    return None
+            
 
 def ymd_to_jdate (year, month, day):
     

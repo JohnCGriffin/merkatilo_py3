@@ -1,55 +1,57 @@
 
-__all__ = [
-    'date_range', 'dates', 'dateset', 'current_dates','date_scope',
-    'today',
-    'cross',
-    'min_max_obs', 'min_ob', 'max_ob',
-    'series_filter',
-    'dump',
-    'repeated',
-    'unrepeated',
-    'lo',
-    'fudge',
-    'ema',
-    'sma',
-    'warp',
-    'conviction',
-    'to_signals',
-    'series_count',
-    'add', 'sub', 'mul', 'div', 'lt', 'le', 'gt', 'ge',
-    'series_or', 'series_and',
-    'volatility', 'volatility_residual' ,
-    'mo', 'mo_days',
-    'set_dates',
-    'lo_set_dates',
-    ]
+# I am open to suggestions about how to properly reexport modules.
+# - John Griffin (griffinish@gmail.com)
 
-from cross import cross
-from min_max import min_max_obs, min_ob, max_ob
-from conviction import conviction
-from core import dates, dateset, current_dates, date_scope, date_range
-from core import today
-from dump import dump
-from ema import ema
-from fudge import fudge
-from load import lo
-from momentum import mo, mo_days
-from repeated import repeated
-from series_binop import add, sub, mul, div, lt, le, gt, ge
-from series_count import series_count
-from series_filter import series_filter
-from series_logic import series_and, series_or
-from series_map import series_map
-from signals import to_signals
-from sma import sma
-from unrepeated import unrepeated
-from volatility import volatility, volatility_residual
-from warp import warp
+import conviction as lib_conviction
+import core as lib_core
+import cross as lib_cross
+import dump as lib_dump
+import ema as lib_ema
+import fudge as lib_fudge
+import load as lib_load
+import min_max as lib_min_max
+import momentum as lib_momentum
+import repeated as lib_repeated
+import series_binop as lib_series_binop
+import series_count as lib_series_count
+import series_filter as lib_series_filter
+import series_logic as lib_series_logic
+import series_map as lib_series_map
+import signals as lib_signals
+import sma as lib_sma
+import sugar as lib_sugar
+import unrepeated as lib_unrepeated
+import volatility as lib_volatility
+import warp as lib_warp
 
-def set_dates(item):
-    current_dates(dates(item))
+def reexports (*libs):
+    d = {}
+    for lib in libs:
+        for name in lib.__all__:
+            if name in d:
+                raise Exception('libs {} and {} clash on name {}'.format(d[name],lib,name))
+            d[name] = lib
+            globals()[name] = getattr(lib,name)
+    return [ name for name in sorted(d.keys()) ]
 
-def lo_set_dates(item):
-    s = lo(item)
-    set_dates(s)
-    return s
+__all__ = reexports( lib_conviction,
+                     lib_core,
+                     lib_cross,
+                     lib_dump,
+                     lib_ema,
+                     lib_fudge,
+                     lib_load,
+                     lib_min_max,
+                     lib_momentum,
+                     lib_repeated,
+                     lib_series_binop,
+                     lib_series_count,
+                     lib_series_filter,
+                     lib_series_logic,
+                     lib_series_map,
+                     lib_signals,
+                     lib_sma,
+                     lib_sugar,
+                     lib_unrepeated,
+                     lib_volatility,
+                     lib_warp)
