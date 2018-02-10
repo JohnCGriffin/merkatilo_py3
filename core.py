@@ -24,22 +24,24 @@ import threading
 import bisect
 
 def set_dates(item):
-    'shortcut to current_dates(dates(item))'
+    '''shortcut to current_dates(dates(item))'''
     current_dates(dates(item))
 
 def first_date(dates=None):
-    'first date of specified dates or current_dates()'
+    '''first date of specified dates or current_dates()'''
     dates = dates or current_dates()
     return dates.vec[0]
 
 def last_date(dates=None):
-    'last date of specified dates or current_dates()'
+    '''last date of specified dates or current_dates()'''
     dates = dates or current_dates()
     return dates.vec[-1]
 
 def nearest(dt, dates=None, or_later=False):
+    
     '''nearest returns the exact date or the one just
     earlier if or_later is False or later if or_later is True.'''
+    
     dates = dates or current_dates()
     dv = dates.vec
     if dv[0] <= dt <= dv[-1]:
@@ -52,7 +54,9 @@ def nearest(dt, dates=None, or_later=False):
             
 
 def ymd_to_jdate (year, month, day):
+    
     '''Calculate jdate from year,month,day. Input values are verified'''
+    
     def leap_year (y):
         if y % 4 > 0:
             return False
@@ -98,7 +102,9 @@ def ymd_to_jdate (year, month, day):
 
 
 def jdate_to_ymd (julian):
+    
     '''Convert jdate to year,month,day tuple'''
+    
     JD = round(julian)
     L = JD + 68569
     M = (L * 4) // 146097
@@ -155,8 +161,10 @@ def to_jdate(item):
 
 
 def today(offset=0):
+
     '''With offset defaulted to zero, get jdate representing today.
     Thus, yesterday is today(-1).'''
+    
     d = datetime.datetime.now().date()
     return ymd_to_jdate(d.year,d.month,d.day) + offset
 
@@ -206,6 +214,7 @@ def normalize_to_False(f):
     return normalizer
 
 class series(object):
+
     '''series is the merkatilo container with a name
     and a function mapping date to float|None.'''
     
@@ -223,6 +232,7 @@ class series(object):
         return '<series:{}>'.format((self.name if self.name else super().__repr__()))
 
 class vector_series(series):
+
     '''A subclass of series, vector_series is used within the library.'''
     
     def __init__(self, vec, first_date, name=None):
@@ -250,11 +260,14 @@ class vector_series(series):
 
 
 def to_date(item):
+
     '''If None,False or jdate, pass it through.  
     Otherwise, attempt conversion via to_jdate.'''
+
     return item and to_jdate(item)
 
 class dateset(object):
+
     '''A dateset wraps an ordered vector of jdate integers.  Generally
        one constructs a dateset via the "dates" function.'''
     
@@ -286,6 +299,7 @@ class dateset(object):
                                          jdate_to_text(self.last_date()))
 
 class date_range(object):
+
     '''date_range describes a range of dates.'''
 
     def __init__(self, first, last):
@@ -311,6 +325,7 @@ class date_range(object):
                                            jdate_to_text(self.last))
         
 def dates(*specs, first=None, last=None, expanded=False, union=False):
+
     '''The dates() call is a flexible way to create a dateset.  Inputs can be
     one or more specifications by dateset, date_range, or series.  These are
     further constrained by optional "first" and "last" dates.  By default,
@@ -372,8 +387,10 @@ __local = threading.local()
 __local.current_dates = dates({ today() })
 
 def current_dates(dts=None):
+
     '''Thread-local setting of active dateset.  Most commands utilize this value as 
     the default if no dates= argument is given.'''
+
     if dts:
         if not isinstance(dts,dateset):
             raise Exception('current_dates requires dateset but received {}'.format(type(dts)))
@@ -381,8 +398,10 @@ def current_dates(dts=None):
     return __local.current_dates
 
 class date_scope(object):
+
     '''For use with the "with" keyword, set a scoped area in which current_dates
     thread_local is set to a date specification (i.e. date_range, dateset, series).'''
+
     def __init__(self, spec):
         self.dates = dates(spec)
         self.previous_dates = current_dates()
