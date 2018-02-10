@@ -33,7 +33,7 @@ import unrepeated    as __imported_lib_unrepeated
 import volatility    as __imported_lib_volatility
 import warp          as __imported_lib_warp
 
-def reexports (*libs):
+def __reexports (*libs):
     d = {}
     for lib in libs:
         for name in lib.__all__:
@@ -43,24 +43,24 @@ def reexports (*libs):
             globals()[name] = getattr(lib,name)
     return [ name for name in sorted(d.keys()) ]
 
-__all__ = reexports( __imported_lib_conviction,
-                     __imported_lib_core,
-                     __imported_lib_cross,
-                     __imported_lib_dump,
-                     __imported_lib_ema,
-                     __imported_lib_fudge,
-                     __imported_lib_load,
-                     __imported_lib_min_max,
-                     __imported_lib_momentum,
-                     __imported_lib_repeated,
-                     __imported_lib_series_binop,
-                     __imported_lib_series_count,
-                     __imported_lib_series_filter,
-                     __imported_lib_series_logic,
-                     __imported_lib_series_map,
-                     __imported_lib_signals,
-                     __imported_lib_sma,
-                     __imported_lib_sugar,
-                     __imported_lib_unrepeated,
-                     __imported_lib_volatility,
-                     __imported_lib_warp)
+__all__ = __reexports( __imported_lib_conviction,
+                       __imported_lib_core,
+                       __imported_lib_cross,
+                       __imported_lib_dump,
+                       __imported_lib_ema,
+                       __imported_lib_fudge,
+                       __imported_lib_load,
+                       __imported_lib_min_max,
+                       __imported_lib_momentum,
+                       __imported_lib_repeated,
+                       __imported_lib_series_binop,
+                       __imported_lib_series_count,
+                       __imported_lib_series_filter,
+                       __imported_lib_series_logic,
+                       __imported_lib_series_map,
+                       __imported_lib_signals,
+                       __imported_lib_sma,
+                       __imported_lib_sugar,
+                       __imported_lib_unrepeated,
+                       __imported_lib_volatility,
+                       __imported_lib_warp)
