@@ -68,7 +68,7 @@ from private.test_support import MO_DAYS_200_OBS
 class EMATest(CommonTestingBase):
 
     def test_ema_3(self):
-        MO_DAYS_200_SERIES = obs_series.obs_to_series(MO_DAYS_200_OBS)
+        MO_DAYS_200_SERIES = obs_to_series(MO_DAYS_200_OBS)
         f1 = MO_DAYS_200_SERIES.f
         f2 = mo_days(self.TEST_SERIES,200).f
         for dt in core.current_dates():

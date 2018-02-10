@@ -53,7 +53,7 @@ def drawdown(s, dates=None):
 
 
 def drawdown_residual (s, dates=None):
-    dd = series_drawdown(s, dates=dates)
+    dd = drawdown(s, dates=dates)
     return (dd[1][1] / dd[0][1])
     
 #==================================

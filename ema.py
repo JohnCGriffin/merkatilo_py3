@@ -20,7 +20,9 @@ def ema(s, N, dates=None):
     f = s.f
     for dt in dates:
         val = f(dt)
-        newVal = (fraction * val + remainder * prev) if (core.is_valid_num(prev) and core.is_valid_num(val)) else val
+        newVal = ((fraction * val + remainder * prev)
+                  if (core.is_valid_num(prev) and core.is_valid_num(val))
+                  else val)
         outv[dt - fd] = newVal
         prev = newVal
     return core.vector_series(outv, fd, name="EMA({},{})".format(abbreviate(s),N))

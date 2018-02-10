@@ -55,7 +55,7 @@ from common_testing_base import CommonTestingBase, obs_to_series
 from ema import ema
 from private.test_support import CROSS_EMA_30_OBS
 
-class CrossTests(Comm
+class CrossTests(CommonTestingBase):
 
     def test_cross(self):
         CROSS_EMA_30_SERIES = obs_to_series(CROSS_EMA_30_OBS)
