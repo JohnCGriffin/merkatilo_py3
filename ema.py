@@ -29,20 +29,16 @@ def ema(s, N, dates=None):
 
 #=================================
 
-import unittest
-
-import obs_series
-from private.test_support import TEST_SERIES_OBS, EMA_3_OBS
+from common_testing_base import CommonTestingBase, obs_to_series
+from private.test_support import EMA_3_OBS
 
 
-class EMATest(unittest.TestCase):
+class EMATest(CommonTestingBase):
 
     def test_ema_3(self):
-        TEST_SERIES = obs_series.obs_to_series(TEST_SERIES_OBS)
-        EMA_3_SERIES = obs_series.obs_to_series(EMA_3_OBS)
-        core.current_dates(core.dates(TEST_SERIES))
+        EMA_3_SERIES = obs_to_series(EMA_3_OBS)
         f1 = EMA_3_SERIES.f
-        f2 = ema(TEST_SERIES,3).f
+        f2 = ema(self.TEST_SERIES,3).f
         for dt in core.current_dates():
             self.assertEqual(f1(dt),f2(dt))
 

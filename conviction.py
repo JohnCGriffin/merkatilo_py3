@@ -39,23 +39,17 @@ def conviction(s, N, dates=None):
 
 
 #===============================================
-import unittest
-
-import obs_series
-from dump import dump
+from common_testing_base import CommonTestingBase, obs_to_series
 from momentum import mo
 
-from private.test_support import TEST_SERIES_OBS, MO_5_CONVICTION_4_OBS
+from private.test_support import MO_5_CONVICTION_4_OBS
 
-
-class ConvictionTest(unittest.TestCase):
+class ConvictionTest(CommonTestingBase):
 
     def test_ema_3(self):
-        TEST_SERIES = obs_series.obs_to_series(TEST_SERIES_OBS)
-        MO_5_CONVICTION_4_SERIES = obs_series.obs_to_series(MO_5_CONVICTION_4_OBS)
-        core.current_dates(core.dates(TEST_SERIES))
+        MO_5_CONVICTION_4_SERIES = obs_to_series(MO_5_CONVICTION_4_OBS)
         f1 = MO_5_CONVICTION_4_SERIES.f
-        f2 = conviction(mo(TEST_SERIES,5),4).f
+        f2 = conviction(mo(self.TEST_SERIES,5),4).f
         for dt in core.current_dates():
             self.assertEqual(f1(dt),f2(dt))
 

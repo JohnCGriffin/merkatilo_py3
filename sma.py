@@ -31,20 +31,16 @@ def sma(s, N, dates=None):
     
 #=================================
 
-import unittest
+from common_testing_base import CommonTestingBase, obs_to_series
+from private.test_support import SMA_3_OBS
 
-import obs_series
-from private.test_support import TEST_SERIES_OBS, SMA_3_OBS
-
-
-class SMATest(unittest.TestCase):
+class SMATest(CommonTestingBase):
 
     def test_sma_3(self):
-        TEST_SERIES = obs_series.obs_to_series(TEST_SERIES_OBS)
-        SMA_3_SERIES = obs_series.obs_to_series(SMA_3_OBS)
-        core.current_dates(core.dates(TEST_SERIES))
+        SMA_3_SERIES = obs_to_series(SMA_3_OBS)
+        core.current_dates(core.dates(self.TEST_SERIES))
         f1 = SMA_3_SERIES.f
-        f2 = sma(TEST_SERIES,3).f
+        f2 = sma(self.TEST_SERIES,3).f
         for dt in core.current_dates():
             f1_val = f1(dt)
             f2_val = f2(dt)

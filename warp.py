@@ -31,14 +31,11 @@ def warp (s, N:int, dates=None):
 
 #==========================================
 
-import unittest
+from common_testing_base import CommonTestingBase
 from series_count import series_count
-from load import lo
 
-class warp_testing(unittest.TestCase):
+class warp_testing(CommonTestingBase):
 
     def test_two_way(self):
-        IBM = lo('IBM')
-        core.current_dates(core.dates(IBM))
-        self.assertEqual(series_count(warp(IBM,20)),
-                         series_count(IBM)-20)
+        self.assertEqual(series_count(warp(self.TEST_SERIES,20)),
+                         series_count(self.TEST_SERIES)-20)

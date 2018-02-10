@@ -62,20 +62,15 @@ def mo_days(s, days, dates=None):
 
 #=================================
 
-import unittest
+from common_testing_base import CommonTestingBase, obs_to_series
+from private.test_support import MO_DAYS_200_OBS
 
-import obs_series
-from private.test_support import TEST_SERIES_OBS, MO_DAYS_200_OBS
-
-
-class EMATest(unittest.TestCase):
+class EMATest(CommonTestingBase):
 
     def test_ema_3(self):
-        TEST_SERIES = obs_series.obs_to_series(TEST_SERIES_OBS)
         MO_DAYS_200_SERIES = obs_series.obs_to_series(MO_DAYS_200_OBS)
-        core.current_dates(core.dates(TEST_SERIES))
         f1 = MO_DAYS_200_SERIES.f
-        f2 = mo_days(TEST_SERIES,200).f
+        f2 = mo_days(self.TEST_SERIES,200).f
         for dt in core.current_dates():
             self.assertEqual(f1(dt),f2(dt))
 

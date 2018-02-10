@@ -51,19 +51,15 @@ def cross(*,slower=None, faster=None, upfactor=1.0, downfactor=1.0, dates=None):
         
 #======================================
 
-import unittest
-from obs_series import obs_to_series
+from common_testing_base import CommonTestingBase, obs_to_series
 from ema import ema
+from private.test_support import CROSS_EMA_30_OBS
 
-from private.test_support import TEST_SERIES_OBS, CROSS_EMA_30_OBS
-
-class CrossTests(unittest.TestCase):
+class CrossTests(Comm
 
     def test_cross(self):
-        TEST_SERIES = obs_to_series(TEST_SERIES_OBS)
         CROSS_EMA_30_SERIES = obs_to_series(CROSS_EMA_30_OBS)
-        core.current_dates(core.dates(TEST_SERIES))
         f1 = CROSS_EMA_30_SERIES.f
-        f2 = cross(slower=ema(TEST_SERIES,30), faster=TEST_SERIES).f
+        f2 = cross(slower=ema(self.TEST_SERIES,30), faster=self.TEST_SERIES).f
         for dt in core.current_dates():
             self.assertEqual(f1(dt),f2(dt))
