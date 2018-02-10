@@ -126,32 +126,40 @@ MAX_DATE = ymd_to_jdate(MAX_YEAR,12,31)
 
 
 def is_jdate(j):
+    '''Is the argument a jdate?'''
     return type(j) == type(1) and (MIN_DATE <= j <= MAX_DATE)
 
 def jdate_year(dt):
+    '''Extract year from jdate.'''
     y,m,d = jdate_to_ymd(dt)
     return y
 
 def jdate_month(dt):
+    '''Extract base-1 month from jdate'''
     y,m,d = jdate_to_ymd(dt)
     return m
 
 def jdate_day(dt):
+    '''Extract day of month from jdate'''
     y,m,d = jdate_to_ymd(dt)
     return d;
 
 def jdate_weekday(dt):
+    '''Extract the day of the week from a jdate, 0=Sunday, 6=Saturday'''
     return (dt+1) % 7
 
 
 def jdate_to_text(dt):
+    '''Create text representation of jdate'''
     ymd = jdate_to_ymd(dt)
     return '{:04}-{:02}-{:02}'.format(*ymd)
 
 def text_to_jdate(date_text):
+    '''Create jdate from text representation'''
     return ymd_to_jdate(*[ int(f) for f in date_text.split("-") ])
 
 def to_jdate(item):
+    '''Pass through jdate and convert text to jdate'''
     if is_jdate(item):
         return item
     t = type(item)
