@@ -6,6 +6,10 @@ from private import series_dates_values
 
 def warp (s, N:int, dates=None):
 
+    '''N-period shift of values within dateset.  Negative periods shift data
+    backward in time.  Often a signal series if warped with N=1 to measure 
+    performance of a trading scheme if trading happens the next market day.'''
+
     dates = (dates or core.current_dates())
     dv = dates.vec
     sf = s.f

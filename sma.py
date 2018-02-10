@@ -6,6 +6,8 @@ from private.series_dates_values import series_dates_values
 
 def sma(s, N, dates=None):
 
+    '''Create running N-period arithmetic average of input series.'''
+    
     dates = dates or core.current_dates()
     vals = series_dates_values(s,dates)
     fd = dates.first_date()

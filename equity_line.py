@@ -7,6 +7,11 @@ from private.series_dates_values import series_dates_values
 
 def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=None):
 
+    '''The point of most signal generation is to go in and out of invested position
+    on some series, optionally buying an alternate investment such as short-duration debt.
+    The equity_line series represents the value of the investment after treating signals
+    as entrance and exit points during the dateset indicated.'''
+
     dates = dates or core.current_dates()
     dv = dates.vec
     fd = dates.first_date()
@@ -27,9 +32,11 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
         if sig or (core.is_valid_num(alt) and core.is_valid_num(inv)):
             change = None
             if not core.is_valid_num(inv):
-                raise Exception("missing investment observation at {}".format(core.jdate_to_text(dt)))
+                raise Exception("missing investment observation at {}".format(
+                    core.jdate_to_text(dt)))
             if not core.is_valid_num(alt):
-                raise Exception("missing alternate_investment observation at {}".format(core.jdate_to_text(dt)))
+                raise Exception("missing alternate_investment observation at {}".format(
+                    core.jdate_to_text(dt)))
             if buy:
                 if prev_inv:
                     change = inv/prev_inv

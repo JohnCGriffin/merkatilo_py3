@@ -6,6 +6,10 @@ from private.abbreviate import abbreviate
 
 
 def series_and(a,b):
+
+    '''Given two series, return a series such that the output value is the value
+    of the second input series if both input series have values at a date.'''
+    
     af = a.f
     bf = b.f
     def f(dt):
@@ -19,6 +23,11 @@ def series_and(a,b):
     return core.series(f, name=name)
 
 def series_or(a,b):
+
+    '''Given two series, return a series such that the output value is the value
+    of the first input series if has a value, otherwise the value from the second
+    input series.'''
+    
     af = a.f
     bf = b.f
     def f(dt):

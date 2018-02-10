@@ -1,5 +1,5 @@
 
-__all__ = [ 'series_drawdown', 'drawdown_residual' ]
+__all__ = [ 'drawdown', 'drawdown_residual' ]
 
 import functools
 import core
@@ -10,7 +10,12 @@ from obs_series import series_to_obs
 # max with its nearest following min and find the
 # biggest difference
 
-def series_drawdown(s, dates=None):
+def drawdown(s, dates=None):
+
+    '''drawdown returns a 2-tuple of (date,value) tuples representing the
+    beginning and ending observation points in an input series resulting
+    in the greatest decrease in value.  This answers the question "How much
+    unrealized loss did this investment have?"'''
 
     dates = dates or core.current_dates()
     obs = series_to_obs(dates,s)
@@ -57,7 +62,7 @@ from common_testing_base import CommonTestingBase
 class DrawdownTests(CommonTestingBase):
 
     def testDrawdown(self):
-        dd = series_drawdown(self.TEST_SERIES)
+        dd = drawdown(self.TEST_SERIES)
         mx = (core.to_jdate('2014-9-18'), 361)
         mn = (core.to_jdate('2014-12-16'), 321)
         self.assertEqual(dd, (mx,mn))

@@ -5,6 +5,9 @@ import core
 
 def repeated(s, repeat_last=False, dates=None):
 
+    '''Fill missing values in a series with preceding ones, optionally
+    continuing the last valid observation.'''
+
     dates = dates or core.current_dates()
     vals = list(map(s.f,dates))
 

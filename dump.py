@@ -4,6 +4,11 @@ __all__ = [ 'dump' ]
 import core
 
 def dump(*seriess, first=None, last=None, dts = None):
+    
+    '''dump takes multiple series, with optional dates constraints and
+    lists them in date order.  It is only useful interactively, but in that
+    case, very useful.'''
+    
     def format(n):
         return '{:12.4f}'.format(n)
     sfs = [ s.f for s in seriess ]

@@ -1,6 +1,6 @@
 
 
-__all__ = [ 'volatility', 'volatility_residual' ]
+__all__ = [ 'volatility' ]
 
 from private.standard_deviation import standard_deviation
 from private.series_dates_values import series_dates_values
@@ -9,13 +9,12 @@ from momentum import mo_days
 import core
 
 def volatility (s, days=365, dates=None):
+
+    '''volatility is the standard deviation of the mo_days calculation.'''
+    
     dates = dates or core.current_dates()
     vals = series_dates_values(mo_days(s,days=days,dates=dates),dates)
     return standard_deviation(vals)
-
-def volatility_residual (s, days=365, dates=None):
-    return 1.0 - volatility(s,days=days,dates=dates)
-
 
 
 #=====================================

@@ -4,6 +4,10 @@ __all__ = [ 'min_max_obs', 'max_ob', 'min_ob' ]
 import core
 
 def min_max_obs(s, dates=None):
+    
+    '''Return a 2-tuple of (dt,value) observations representing
+    the points of minimum and maximum values respectively.'''
+    
     dates = dates or core.current_dates()
     min_ob = None
     max_ob = None
@@ -22,9 +26,11 @@ def min_max_obs(s, dates=None):
     return min_ob, max_ob
 
 def min_ob(s, dates=None):
+    '''Shortcut to min_max_obs(s...)[0]'''
     return min_max_obs(s,dates=dates)[0]
 
 def max_ob(s, dates=None):
+    '''Shortcut to min_max_obs(s...)[1]'''
     return min_max_obs(s,dates=dates)[1]
 
 

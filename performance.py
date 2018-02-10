@@ -6,7 +6,7 @@ from first_last_ob import first_ob, last_ob
 from constant import constant
 from signals import to_signals
 from drawdown import drawdown_residual
-from volatility import volatility_residual
+from volatility import volatility
 from equity_line import equity_line
 from repeated import repeated
 from series_count import series_count
@@ -14,6 +14,7 @@ from series_binop import gt
 
 
 def gpa(s, dates=None):
+    '''calculate the annualized gain of series s over dates.'''
     dates = dates or core.current_dates()
     early = first_ob(s,dates=dates)
     late = last_ob(s,dates=dates)
@@ -29,6 +30,10 @@ def long_ratio(signals):
     return longs/total
 
 class Performance(object):
+    
+    '''Performance contains a few interesting facts about an equity line such as
+    its drawdown and annualized gain.'''
+    
     def __init__(self,*,
                  volatility_residual=None,
                  drawdown_residual=None,
@@ -57,6 +62,9 @@ class Performance(object):
                  
 
 def investment_performance(s,*, alternate_investment=None, signals=None, dates=None):
+    
+    '''Return interesting facts about an investment in a Performance object.'''
+    
     dates = dates or core.current_dates()
     alternate_investment = alternate_investment or constant(1)
     signals = signals and to_signals(signals)
@@ -65,7 +73,7 @@ def investment_performance(s,*, alternate_investment=None, signals=None, dates=N
 
         equity = equity_line(s,signals,alternate_investment=alternate_investment) if signals else s
 
-        vol_res = volatility_residual(equity)
+        vol_res = 1 - volatility(equity)
         dd_res = drawdown_residual(equity)
         annualized = gpa(equity)
 

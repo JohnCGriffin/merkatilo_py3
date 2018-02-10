@@ -4,6 +4,13 @@ import core
 from private.utils import signalify_vector_copy
 
 def conviction(s, N, dates=None):
+    
+    '''A conviction signal series avoids signal whipsaws by forcing signals to
+    persist N periods before firing.  The signal, if fired, is delayed by N periods
+    as well.  For instance, with a conviction of 1, two sequential signals are 
+    simply erased.  If not erased, the signal values of the input are delayed by 
+    one period.'''
+    
     dates = dates or core.current_dates()
     dv = [ dt for dt in dates ]
     vals = list(map(s.f, dates))

@@ -7,13 +7,12 @@ from private.abbreviate import abbreviate
 def ratio(early, late):
     return (late/early - 1.0) if (core.is_valid_num(late) and core.is_valid_num(early)) else None
 
-def mo(s, N, dates=None, percent=False):
+def mo(s, N, dates=None):
+    '''return the N-period ratio of new/old values.'''
     
     if N < 1:
         raise Exception('requires period > 0')
 
-    percent_factor = 100 if percent else 1
-    
     dates = dates or core.current_dates()
     sf = s.f
     dv = dates.vec
@@ -26,16 +25,18 @@ def mo(s, N, dates=None, percent=False):
         l_val = sf(late)
         r = ratio(e_val, l_val)
         if core.is_valid_num(r):
-            outv[late - fd] = r * percent_factor
+            outv[late - fd] = r
 
     name = "mo({},{})".format(abbreviate(s),N)
     return core.vector_series(outv, fd, name=name)
 
 
-def mo_days(s, days, dates=None, percent=False):
-
-    percent_factor = 100 if percent else 1
-
+def mo_days(s, days, dates=None):
+    
+    '''Similar to mo(s,N), mo_days(s,days) calculate the new/old ratios along
+    the specified dates but the old is based upon calendar days rather than 
+    periods.'''
+    
     sf = s.f
     sf_old = (fudge.fudge(s)).f
 
@@ -50,7 +51,7 @@ def mo_days(s, days, dates=None, percent=False):
     for dt in dates:
         r = ratio(sf_old(dt-days), sf(dt))
         if core.is_valid_num(r):
-            outv[dt - fd] = r * percent_factor
+            outv[dt - fd] = r
 
     name = "mo_days({},{})".format(abbreviate(s),days)
     return core.vector_series(outv, fd, name=name)

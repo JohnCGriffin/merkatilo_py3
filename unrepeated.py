@@ -5,6 +5,8 @@ import core
 
 def unrepeated(s, dates=None):
 
+    '''Copy the input series, suppressing repeated values.'''
+
     dates = dates or core.current_dates()
     vals = list(map(s.f,dates))
 

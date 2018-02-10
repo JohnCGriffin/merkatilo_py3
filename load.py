@@ -4,6 +4,10 @@ __all__ = [ 'lo' ]
 import core, obs_series, os
 
 def lo(name):
+    
+    '''The lo(ID) command is a sample mechanism for importing time series.
+    You will likely need to create your own implementation.'''
+    
     fname = '{}/TIME_SERIES/{}/CLOSE'.format(os.getenv('HOME'),name)
     entries = []
     with open(fname) as f:

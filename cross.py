@@ -6,6 +6,14 @@ from private.series_dates_values import series_dates_values
 
 
 def cross(*,slower=None, faster=None, upfactor=1.0, downfactor=1.0, dates=None):
+    '''cross generates a signal series, i.e. series of [1,-1,None], set to 1
+    where the faster series moves above the slower series and -1 where it moves
+    below. Changing the upfactor from its default 1.0 changes the border for 
+    crossing.  For instance, upfactor=1.02 means that the faster series must 
+    exceed the lower series by 2% before generating the buy value of 1.  Likewise,
+    setting downfactor to .98 would require passing 2% below the faster series
+    to generate a sell signal of -1.  As usual, dates can be supplied, but default
+    to the current_dates() value.'''
 
     if (not slower) or (not faster):
         raise Exception('slower,faster are required keyword arguments')

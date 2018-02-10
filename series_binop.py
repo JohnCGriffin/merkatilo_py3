@@ -5,6 +5,8 @@ import core
 from series_map import convert
 from private.abbreviate import abbreviate
 
+# Arithmetic and inequality operations
+
 def binop(opname,op):
     def binop_series_function(a,b):
         a = convert(a)
