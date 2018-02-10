@@ -16,7 +16,7 @@ def series_count(s, dates=None):
 
 #=======================================
 
-from common_testing_base import *
+from common_testing_base import CommonTestingBase
 from momentum import mo
 
 class SeriesCountTest(CommonTestingBase):

@@ -19,13 +19,10 @@ def volatility (s, days=365, dates=None):
 
 #=====================================
 
-import unittest, obs_series
-from private.test_support import TEST_SERIES_OBS
+from common_testing_base import CommonTestingBase, approx
 
-class test_volatility(unittest.TestCase):
+class test_volatility(CommonTestingBase):
 
     def test_volatility(self):
-        TEST_SERIES = obs_series.obs_to_series(TEST_SERIES_OBS)
-        dates = core.dates(TEST_SERIES)
-        v = volatility(TEST_SERIES, days=200,dates=dates)
-        self.assertEqual(v, 0.0468086666214253)
+        v = volatility(self.TEST_SERIES, days=200)
+        self.assertEqual(approx(v), approx(0.0468086666214253))
