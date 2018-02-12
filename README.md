@@ -10,9 +10,9 @@ nice size for programming research.  Other implementations exist in C++ and Rack
 
 1) You need Python 3.5+
 2) ``cd the-place-you-like-personal-python-libraries``
-3) ``git clone this-repository-url merkatilo``
-4) ``cd merkatilo``
-5) ``make test``
+3) ``git clone this-repository-url``
+4) ``cd merkatilo_py3``
+5) run tests via ``make``
 
 _Note that when running the test for the first time, test files are downloaded from another
 github repository and placed in ``/tmp/merkatio-test-data/``._
@@ -24,8 +24,8 @@ You will eventually need a data source.  Time series data are loaded into the sy
 Also note that a built-in series exists for testing - use 
 
 ```
-from private.test_support import TEST_SERIES_OBS
-from obs_series import obs_to_series
+from merkatilo.private.test_support import TEST_SERIES_OBS
+from merkatilo.obs_series import obs_to_series
 TEST_SERIES = obs_to_series(TEST_SERIES_OBS)
 ```
 You can play with that until you decide where to get your data.  
@@ -37,13 +37,34 @@ Major operations typically associated with technical market analysis involve tim
 The following example loads the SPY ETF, sets the active dates parameter, and does a 200 period cross to create a signal series showing buy and sell signals.  The utility operator dump prints out the SPY series, the 200 period smoothing and the cross.
 
 ```
-from user_imports import *
-SPY = lo("SPY")
-current_dates(dates(SPY))
+from merkatilo import *
+SPY = lo_set_dates("SPY")
 smoothed = sma(SPY,200)
 dump(SPY, smoothed, cross(slower=smoothed,faster=SPY))
 
 ```
+
+## Making New Series Operations
+
+A merkatilo.series is a simple class wrapper of a function which answers a date query 
+with either a real number or None.  So, if you wanted to take the log of a different series,
+one possible mechanism would be:
+
+```
+from merkatilo.core import is_valid_num
+from merkatilo import series
+def log_series (another_series):
+	def f(date):
+		val = another_series.f(date)
+		return math.log(val) if is_valid_num(val) else None
+	return series(f)
+```
+
+Of course, an easier way to accomplish that is
+```
+series_map(math.log,another_series)
+
+
 
 
 
