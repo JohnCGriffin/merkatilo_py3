@@ -1,8 +1,8 @@
 
 __all__ = [ 'series_or', 'series_and' ]
 
-import core
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.private.abbreviate import abbreviate
 
 
 def series_and(a,b):

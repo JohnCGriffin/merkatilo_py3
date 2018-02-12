@@ -1,9 +1,9 @@
 
 __all__ = [ 'to_signals' ]
 
-import core
-from private.utils import signalify_vector_copy
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.private.utils import signalify_vector_copy
+from merkatilo.private.abbreviate import abbreviate
 
 def to_signals(s, dates=None):
 

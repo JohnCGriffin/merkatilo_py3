@@ -1,7 +1,9 @@
 
 __all__ = [ 'lo' ]
 
-import core, obs_series, os
+import os
+import merkatilo.core as core
+import merkatilo.obs_series as obs_series
 
 def lo(name):
     

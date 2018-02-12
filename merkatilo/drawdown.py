@@ -2,8 +2,8 @@
 __all__ = [ 'drawdown', 'drawdown_residual' ]
 
 import functools
-import core
-from obs_series import series_to_obs
+import merkatilo.core as core
+from merkatilo.obs_series import series_to_obs
 
 # Collect incremental forward max observations and
 # incremental backward min observations.  Pair each
@@ -57,7 +57,7 @@ def drawdown_residual (s, dates=None):
     return (dd[1][1] / dd[0][1])
     
 #==================================
-from common_testing_base import CommonTestingBase
+from merkatilo.common_testing_base import CommonTestingBase
 
 class DrawdownTests(CommonTestingBase):
 

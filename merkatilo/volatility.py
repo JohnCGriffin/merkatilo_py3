@@ -2,11 +2,11 @@
 
 __all__ = [ 'volatility' ]
 
-from private.standard_deviation import standard_deviation
-from private.series_dates_values import series_dates_values
-from momentum import mo_days
+from merkatilo.private.standard_deviation import standard_deviation
+from merkatilo.private.series_dates_values import series_dates_values
+from merkatilo.momentum import mo_days
 
-import core
+import merkatilo.core as core
 
 def volatility (s, days=365, dates=None):
 
@@ -19,7 +19,7 @@ def volatility (s, days=365, dates=None):
 
 #=====================================
 
-from common_testing_base import CommonTestingBase, approx
+from merkatilo.common_testing_base import CommonTestingBase, approx
 
 class test_volatility(CommonTestingBase):
 

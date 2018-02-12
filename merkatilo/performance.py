@@ -1,16 +1,16 @@
 
 __all__ = [ 'gpa', 'investment_performance' ]
 
-import core
-from first_last_ob import first_ob, last_ob
-from constant import constant
-from signals import to_signals
-from drawdown import drawdown_residual
-from volatility import volatility
-from equity_line import equity_line
-from repeated import repeated
-from series_count import series_count
-from series_binop import gt
+import merkatilo.core as core
+from merkatilo.first_last_ob import first_ob, last_ob
+from merkatilo.constant import constant
+from merkatilo.signals import to_signals
+from merkatilo.drawdown import drawdown_residual
+from merkatilo.volatility import volatility
+from merkatilo.equity_line import equity_line
+from merkatilo.repeated import repeated
+from merkatilo.series_count import series_count
+from merkatilo.series_binop import gt
 
 
 def gpa(s, dates=None):

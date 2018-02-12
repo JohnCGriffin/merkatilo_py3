@@ -1,9 +1,9 @@
 
 __all__ = [ 'add', 'sub', 'mul', 'div', 'lt', 'le', 'gt', 'ge' ]
 
-import core
-from series_map import convert
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.series_map import convert
+from merkatilo.private.abbreviate import abbreviate
 
 # Arithmetic and inequality operations
 

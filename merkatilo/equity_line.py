@@ -1,9 +1,9 @@
 
 __all__ = [ 'equity_line' ]
 
-import core
-from constant import constant
-from private.series_dates_values import series_dates_values
+import merkatilo.core as core
+from merkatilo.constant import constant
+from merkatilo.private.series_dates_values import series_dates_values
 
 def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=None):
 
@@ -63,10 +63,10 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
 
 #============================================
 
-from common_testing_base import *
-from cross import cross
-from ema import ema
-from private.test_support import EQUITYLINE_EMA_10_OBS
+from merkatilo.common_testing_base import *
+from merkatilo.cross import cross
+from merkatilo.ema import ema
+from merkatilo.private.test_support import EQUITYLINE_EMA_10_OBS
 
 class EquitylineTests(CommonTestingBase):
 

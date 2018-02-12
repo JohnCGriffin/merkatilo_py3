@@ -1,7 +1,7 @@
 
 __all__ = [ 'repeated' ]
 
-import core
+import merkatilo.core as core
 
 def repeated(s, repeat_last=False, dates=None):
 

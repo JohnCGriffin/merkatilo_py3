@@ -1,8 +1,8 @@
 
 __all__ = [ 'sma' ]
 
-import core
-from private.series_dates_values import series_dates_values
+import merkatilo.core as core
+from merkatilo.private.series_dates_values import series_dates_values
 
 def sma(s, N, dates=None):
 
@@ -31,8 +31,8 @@ def sma(s, N, dates=None):
     
 #=================================
 
-from common_testing_base import CommonTestingBase, obs_to_series
-from private.test_support import SMA_3_OBS
+from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
+from merkatilo.private.test_support import SMA_3_OBS
 
 class SMATest(CommonTestingBase):
 

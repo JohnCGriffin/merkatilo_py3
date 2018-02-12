@@ -1,7 +1,7 @@
 
 __all__ = [ 'first_ob', 'last_ob', 'first_value', 'last_value' ]
 
-import core
+import merkatilo.core as core
 
 def first_ob(s, dates=None):
     '''Return first available (dt,value) tuple'''
@@ -39,7 +39,7 @@ def last_value(s, dates=None):
 
 #=========================================
 
-from common_testing_base import CommonTestingBase
+from merkatilo.common_testing_base import CommonTestingBase
 
 class FirstLastTests(CommonTestingBase):
 

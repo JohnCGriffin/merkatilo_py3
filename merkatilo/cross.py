@@ -1,8 +1,9 @@
 
 __all__ = [ 'cross' ]
 
-import core, obs_series
-from private.series_dates_values import series_dates_values
+import merkatilo.core as core
+from merkatilo.obs_series import obs_to_series
+from merkatilo.private.series_dates_values import series_dates_values
 
 
 def cross(*,slower=None, faster=None, upfactor=1.0, downfactor=1.0, dates=None):
@@ -43,7 +44,7 @@ def cross(*,slower=None, faster=None, upfactor=1.0, downfactor=1.0, dates=None):
             obs.append((dt,sig))
             prev_sig = sig
 
-    return obs_series.obs_to_series(obs)
+    return obs_to_series(obs)
 
         
           
@@ -51,9 +52,9 @@ def cross(*,slower=None, faster=None, upfactor=1.0, downfactor=1.0, dates=None):
         
 #======================================
 
-from common_testing_base import CommonTestingBase, obs_to_series
-from ema import ema
-from private.test_support import CROSS_EMA_30_OBS
+from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
+from merkatilo.ema import ema
+from merkatilo.private.test_support import CROSS_EMA_30_OBS
 
 class CrossTests(CommonTestingBase):
 

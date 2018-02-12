@@ -1,7 +1,7 @@
 
 __all__ = [ 'unrepeated' ]
 
-import core
+import merkatilo.core as core
 
 def unrepeated(s, dates=None):
 

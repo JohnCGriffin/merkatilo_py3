@@ -1,8 +1,8 @@
 
 __all__ = [ 'series_filter' ]
 
-import core
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.private.abbreviate import abbreviate
 
 # e.g. series_filter(lambda val:(180 < val < 190), IBM)
 

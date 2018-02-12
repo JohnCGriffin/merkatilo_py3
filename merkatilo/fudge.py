@@ -1,8 +1,8 @@
 
 __all__ = [ 'fudge' ]
 
-import core
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.private.abbreviate import abbreviate
 
 def fudge(s, days=6):
     

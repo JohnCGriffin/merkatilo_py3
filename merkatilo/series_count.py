@@ -1,7 +1,7 @@
 
 __all__ = [ 'series_count' ]
 
-import core
+import merkatilo.core as core
 
 def series_count(s, dates=None):
     
@@ -16,8 +16,8 @@ def series_count(s, dates=None):
 
 #=======================================
 
-from common_testing_base import CommonTestingBase
-from momentum import mo
+from merkatilo.common_testing_base import CommonTestingBase
+from merkatilo.momentum import mo
 
 class SeriesCountTest(CommonTestingBase):
 

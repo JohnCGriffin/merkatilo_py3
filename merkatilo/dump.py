@@ -1,7 +1,7 @@
 
 __all__ = [ 'dump' ]
 
-import core
+import merkatilo.core as core
 
 def dump(*seriess, first=None, last=None, dts = None):
     

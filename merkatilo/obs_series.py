@@ -1,7 +1,7 @@
 
 __all__ = [ 'obs_to_series', 'series_to_obs' ]
 
-import core
+import merkatilo.core as core
 
 def obs_to_series(obs, name=None):
     
@@ -13,7 +13,7 @@ def obs_to_series(obs, name=None):
         return core.series(lambda dt: None, name)
     fd = valids[0][0]
     ld = valids[-1][0]
-    vec:List[Optional[float]] = [ None for x in range(fd,ld+1) ]
+    vec = [ None for x in range(fd,ld+1) ]
     for (dt,val) in valids:
         vec[dt-fd] = val
     return core.vector_series(vec, fd, name=name)

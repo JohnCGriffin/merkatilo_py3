@@ -1,10 +1,10 @@
 
 __all__ = [ 'warp' ]
 
-import core
-from private import series_dates_values
+import merkatilo.core as core
+from merkatilo.private import series_dates_values
 
-def warp (s, N:int, dates=None):
+def warp (s, N, dates=None):
 
     '''N-period shift of values within dateset.  Negative periods shift data
     backward in time.  Often a signal series if warped with N=1 to measure 
@@ -31,8 +31,8 @@ def warp (s, N:int, dates=None):
 
 #==========================================
 
-from common_testing_base import CommonTestingBase
-from series_count import series_count
+from merkatilo.common_testing_base import CommonTestingBase
+from merkatilo.series_count import series_count
 
 class warp_testing(CommonTestingBase):
 

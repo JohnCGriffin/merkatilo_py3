@@ -1,8 +1,8 @@
 
 __all__ = [ 'ema' ]
 
-import core
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.private.abbreviate import abbreviate
 
 
 def ema(s, N, dates=None):
@@ -31,8 +31,8 @@ def ema(s, N, dates=None):
 
 #=================================
 
-from common_testing_base import CommonTestingBase, obs_to_series
-from private.test_support import EMA_3_OBS
+from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
+from merkatilo.private.test_support import EMA_3_OBS
 
 
 class EMATest(CommonTestingBase):

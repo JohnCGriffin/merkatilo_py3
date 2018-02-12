@@ -1,12 +1,14 @@
 
 __all__ = [ 'series_map' ]
 
-import core, obs_series, constant
+import merkatilo.core as core
+from  merkatilo.obs_series import obs_to_series
+from merkatilo.constant import constant
 
 
 def convert(s):
     if core.is_valid_num(s):
-        return constant.constant(s)
+        return constant(s)
     else:
         return s
         
@@ -29,5 +31,5 @@ def series_map(proc, *seriesz, missing_data_permitted=False, dts=None):
         if core.is_valid_num(val):
             obs.append((dt,val))
 
-    return obs_series.obs_to_series(obs)
+    return obs_to_series(obs)
     

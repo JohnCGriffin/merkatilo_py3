@@ -1,7 +1,7 @@
 
 __all__ = [ 'constant' ]
 
-import core
+import merkatilo.core as core
 
 def constant(N):
     def f(dt_ignored):

@@ -1,8 +1,9 @@
 
 __all__ = [ 'mo', 'mo_days' ]
 
-import core, fudge
-from private.abbreviate import abbreviate
+import merkatilo.core as core
+from merkatilo.fudge import fudge
+from merkatilo.private.abbreviate import abbreviate
 
 def ratio(early, late):
     return (late/early - 1.0) if (core.is_valid_num(late) and core.is_valid_num(early)) else None
@@ -38,7 +39,7 @@ def mo_days(s, days, dates=None):
     periods.'''
     
     sf = s.f
-    sf_old = (fudge.fudge(s)).f
+    sf_old = (fudge(s)).f
 
     if days < 1:
         raise Exception('expected positive days')
@@ -62,8 +63,8 @@ def mo_days(s, days, dates=None):
 
 #=================================
 
-from common_testing_base import CommonTestingBase, obs_to_series
-from private.test_support import MO_DAYS_200_OBS
+from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
+from merkatilo.private.test_support import MO_DAYS_200_OBS
 
 class EMATest(CommonTestingBase):
 

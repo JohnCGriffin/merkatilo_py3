@@ -1,7 +1,7 @@
 __all__ = [ 'conviction' ]
 
-import core
-from private.utils import signalify_vector_copy
+import merkatilo.core as core
+from merkatilo.private.utils import signalify_vector_copy
 
 def conviction(s, N, dates=None):
     
@@ -39,10 +39,10 @@ def conviction(s, N, dates=None):
 
 
 #===============================================
-from common_testing_base import CommonTestingBase, obs_to_series
-from momentum import mo
+from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
+from merkatilo.momentum import mo
 
-from private.test_support import MO_5_CONVICTION_4_OBS
+from merkatilo.private.test_support import MO_5_CONVICTION_4_OBS
 
 class ConvictionTest(CommonTestingBase):
 

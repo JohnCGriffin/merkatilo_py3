@@ -1,7 +1,7 @@
 
 __all__ = [ 'min_max_obs', 'max_ob', 'min_ob' ]
 
-import core
+import merkatilo.core as core
 
 def min_max_obs(s, dates=None):
     
@@ -38,7 +38,7 @@ def max_ob(s, dates=None):
 
 #===================================
 
-from common_testing_base import CommonTestingBase
+from merkatilo.common_testing_base import CommonTestingBase
 
 class MinMaxTests(CommonTestingBase):
 
