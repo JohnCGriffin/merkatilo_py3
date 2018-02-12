@@ -86,7 +86,7 @@ def investment_performance(s,*, alternate_investment=None, signals=None, dates=N
 
 
 #=====================================
-from common_testing_base import *
+from merkatilo.common_testing_base import *
 
 class PerfTest(CommonTestingBase):
 
