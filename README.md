@@ -66,16 +66,4 @@ def log_series (another_series):
 Of course, an easier way to accomplish that is
 ```
 series_map(math.log,another_series)
-
-
-
-
-
-  
-
-
-
-
-
-
-
+```
