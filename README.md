@@ -3,8 +3,11 @@ Merkatilo implemented in Python3
 
 ## Purpose
 
-This library serves two goals.  First, it is used to perform active research in the stock market.  Secondly, it's a
-nice size for programming research.  Other implementations exist in C++ and Racket. This version is implemented in Python3.  It is a library, not a complete system.  Specifically, you must add a data source.
+This library serves two goals.  First, it is used to perform 
+active research in financial markets.  Secondly, this Python3 library a
+nice size for programming research along with its sibling implementations in C++ and Racket. 
+This is only a library, not a complete system.  Most importantly, to make it useful,
+you must add a data source.
 
 ## Setup
 
