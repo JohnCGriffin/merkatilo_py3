@@ -23,6 +23,9 @@ def min_max_obs(s, dates=None):
             if max_ob[1] < val:
                 max_ob = (dt,val)
 
+    if not min_ob:
+        raise Exception("no observations")
+
     return min_ob, max_ob
 
 def min_ob(s, dates=None):
