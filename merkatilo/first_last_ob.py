@@ -1,5 +1,5 @@
 
-__all__ = [ 'first_ob', 'last_ob', 'first_value', 'last_value' ]
+__all__ = [ 'first_ob', 'last_ob' ]
 
 import merkatilo.core as core
 
@@ -24,16 +24,6 @@ def last_ob(s, dates=None):
         if core.is_valid_num(val):
             return (dt,val)
     return None
-
-def first_value(s, dates=None):
-    '''Return first valid number in series.'''
-    ob = first_ob(s,dates=dates)
-    return ob[1] if ob else None
-
-def last_value(s, dates=None):
-    '''Return last valid number in series.'''
-    ob = last_ob(s,dates=dates)
-    return ob[1] if ob else None
 
 
 
