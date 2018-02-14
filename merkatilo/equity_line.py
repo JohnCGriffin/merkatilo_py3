@@ -4,6 +4,7 @@ __all__ = [ 'equity_line' ]
 import merkatilo.core as core
 from merkatilo.constant import constant
 from merkatilo.private.series_dates_values import series_dates_values
+from merkatilo.first_last_ob import first_ob
 
 def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=None):
 
@@ -27,6 +28,9 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
     product = 1.0
     buy = True
     prev_inv = prev_alt = None
+    first_sig_ob = first_ob(signals, dates=dates)
+    if not first_sig_ob:
+        raise Exception("signal series is empty")
 
     for (dt,alt,inv,sig) in zip(dv,alt_vals,inv_vals,sig_vals):
         if sig or (core.is_valid_num(alt) and core.is_valid_num(inv)):
@@ -47,6 +51,10 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
                     change = alt/prev_alt
                 else:
                     change = 1.0
+
+            # prior to having signal, nothing was invested
+            if dt <= first_sig_ob[0]:
+                change = 1.0
 
             new_buy = (sig > 0) if sig else buy
             new_product = product * change
