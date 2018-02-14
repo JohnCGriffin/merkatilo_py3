@@ -69,7 +69,7 @@ series_map(math.log,another_series)
 ```
 
 
-=======
+- - -
 MIT License
 
 Copyright (c) 2018 John C. Griffin, 
