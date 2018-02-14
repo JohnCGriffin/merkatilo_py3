@@ -68,11 +68,11 @@ Of course, an easier way to accomplish that is
 series_map(math.log,another_series)
 ```
 
-License
+
 =======
 MIT License
 
-Copyright (c) 2018 John C. Griffin
+Copyright (c) 2018 John C. Griffin, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -92,6 +92,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-John Griffin
-griffinish@gmail.com
 
