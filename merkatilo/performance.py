@@ -19,7 +19,7 @@ def gpa(s, dates=None):
     early = first_ob(s,dates=dates)
     late = last_ob(s,dates=dates)
     days = late[0] - early[0]
-    years = days / 365.25
+    years = days / 365.2425
     gain = late[1] / early[1]
     return (gain ** (1 / years)) - 1
 
@@ -91,7 +91,7 @@ from merkatilo.common_testing_base import *
 class PerfTest(CommonTestingBase):
 
     def testGPA(self):
-        self.assertEqual(approx(gpa(self.TEST_SERIES)), approx(0.076885298))
+        self.assertEqual(approx(gpa(self.TEST_SERIES)), approx(0.07688365986138823))
 
 
     

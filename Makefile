@@ -13,9 +13,10 @@ doc-clean:
 	cd docs && make clean
 
 doc: doc-clean
-	cd docs && make html
+	cd docs && PYTHONPATH=.. make html && cd _build/html && tar cf ../../../merkatilo_py3_docs.tar .
 
 clean: doc-clean
+	rm -f merkatilo_py3_docs.tar && \
 	cd merkatilo && \
 	rm -rf __pycache__ *.pyc \
 		.mypy_cache/ \

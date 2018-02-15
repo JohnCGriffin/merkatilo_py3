@@ -7,11 +7,56 @@ Python3 Implementation of Merkatilo
 ===================================
 
 After having creating a considerable amount of very fast, complete, and huge
-technical analysis tools in Java, C++ and Zentech, I just wanted something simple.
+technical analysis tools in C++/Python hybrids, I just wanted something simple.
 Thus, the merkatilo
 libraries are
 my most-used subset of functionality in single language implementations.  
-This is the Python3 implementation.
+This is the Python3 (3.5+) implementation.
+
+Library code lives at `Github <https://github.com/JohnCGriffin/merkatilo_py3>`_.
+
+Overview
+========
+
+The basic data structures are a Time Series structure that wraps a simple
+date-to-number function, a date, and a dateset which is an ordered collection
+of dates. A time series is represented by series class which takes
+only a date->optional-number function and a name. It is
+the argument to many functions that beget new series instances.
+
+The functions operating transforming series to new series come in two styles,
+those oriented to a sequence of dates, and those that require no dateset.
+For example, the sma procedure creates a new series representing a running
+average of the input series over some dateset. However, :code:`add` sums two input
+series on a date without respect to any date sequence.
+
+Speaking of dates, with merkatilo, they are called jdate, meaning julian date.
+The julian date coincides with Postgres’ idea of a julian.
+
+Here’s an example that loads the SPY ETF adjusted closing price, does a
+cross of that series with its 200-period moving average, generating
+buy (+1) and sell (-1) signals. Finally, it dumps them out in
+date order, like a dumped spreadsheet.
+
+.. code-block:: python
+
+   from merkatilo import *
+
+   SPY = lo_set_dates('SPY')
+   smoothed = sma(SPY,200)
+   my_signals = cross(slower=smoothed, faster=SPY)
+   dump(SPY, my_signals)
+
+
+Please note that **if you attempt to do the example above, it will not work**.
+That is because this library manipulates times series; it does not provide
+financial data. You have to come up with that yourself. If you are just studying,
+investigate using the
+`St. Louis Federal Reserve FRED database <https://fred.stlouisfed.org/>`_,
+`OECD <https://data.oecd.org/>`_,
+and `Quandl <https://www.quandl.com/>`_.
+
+   
 
 License
 =======
