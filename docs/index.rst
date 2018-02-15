@@ -7,18 +7,23 @@ Python3 Implementation of Merkatilo
 ===================================
 
 After having creating a considerable amount of very fast, complete, and huge
-technical analysis tools in C++/Python hybrids, I just wanted something simple.
+technical analysis tools in C++/Python hybrids, I aimed for simplicity and
+minimalism.
 Thus, the merkatilo
 libraries are
 my most-used subset of functionality in single language implementations.  
-This is the Python3 (3.5+) implementation.
+This is the Python3 (3.5+) implementation.  
 
-Library code lives at `Github <https://github.com/JohnCGriffin/merkatilo_py3>`_.
+Library code resides at `Github <https://github.com/JohnCGriffin/merkatilo_py3>`_ under
+MIT licensing.
+
+John Griffin, griffinish at gmail
+
 
 Overview
 ========
 
-The basic data structures are a Time Series structure that wraps a simple
+The basic data structures are a time series structure that wraps a simple
 date-to-number function, a date, and a dateset which is an ordered collection
 of dates. A time series is represented by series class which takes
 only a date->optional-number function and a name. It is
@@ -57,34 +62,6 @@ investigate using the
 and `Quandl <https://www.quandl.com/>`_.
 
    
-
-License
-=======
-MIT License
-
-Copyright (c) 2018 John C. Griffin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-John Griffin
-griffinish@gmail.com
-
 
 .. toctree::
    :maxdepth: 2
