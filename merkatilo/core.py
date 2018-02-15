@@ -55,7 +55,7 @@ def nearest(dt, dates=None, or_later=False):
 
 def ymd_to_jdate (year, month, day):
     
-    '''Calculate jdate from year,month,day. Input values are verified'''
+    '''Calculate jdate from year,month,day. Input values are verified.'''
     
     def leap_year (y):
         if y % 4 > 0:
@@ -103,7 +103,7 @@ def ymd_to_jdate (year, month, day):
 
 def jdate_to_ymd (julian):
     
-    '''Convert jdate to year,month,day tuple'''
+    '''Convert jdate to year,month,day tuple.'''
     
     JD = round(julian)
     L = JD + 68569
@@ -126,7 +126,7 @@ MAX_DATE = ymd_to_jdate(MAX_YEAR,12,31)
 
 
 def is_jdate(j):
-    '''Is the argument a jdate?'''
+    '''Is the argument a jdate?.'''
     return type(j) == type(1) and (MIN_DATE <= j <= MAX_DATE)
 
 def jdate_year(dt):
@@ -135,22 +135,22 @@ def jdate_year(dt):
     return y
 
 def jdate_month(dt):
-    '''Extract base-1 month from jdate'''
+    '''Extract base-1 month from jdate.'''
     y,m,d = jdate_to_ymd(dt)
     return m
 
 def jdate_day(dt):
-    '''Extract day of month from jdate'''
+    '''Extract day of month from jdate.'''
     y,m,d = jdate_to_ymd(dt)
     return d;
 
 def jdate_weekday(dt):
-    '''Extract the day of the week from a jdate, 0=Sunday, 6=Saturday'''
+    '''Extract the day of the week from a jdate, 0=Sunday, 6=Saturday.'''
     return (dt+1) % 7
 
 
 def jdate_to_text(dt):
-    '''Create text representation of jdate'''
+    '''Create text representation of jdate.'''
     ymd = jdate_to_ymd(dt)
     return '{:04}-{:02}-{:02}'.format(*ymd)
 
@@ -159,7 +159,7 @@ def text_to_jdate(date_text):
     return ymd_to_jdate(*[ int(f) for f in date_text.split("-") ])
 
 def to_jdate(item):
-    '''Pass through jdate and convert text to jdate'''
+    '''Pass through jdate and convert text to jdate.'''
     if is_jdate(item):
         return item
     t = type(item)
@@ -221,6 +221,7 @@ def normalize_to_False(f):
         return normalize_val(f(dt))
     return normalizer
 
+
 class series(object):
 
     '''series is the merkatilo container with a name
@@ -229,6 +230,9 @@ class series(object):
     def __init__(self, f, name=None, require_normalization_wrapper=True):
         self.f = normalize_to_False(f) if require_normalization_wrapper else f
         self.name = name
+
+    # def __add__(self,other):
+    #     return merkatilo.series_binop.add(self,other)
         
     def first_date(self):
         return None

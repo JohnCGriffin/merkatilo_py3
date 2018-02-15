@@ -9,7 +9,7 @@ def ratio(early, late):
     return (late/early - 1.0) if (core.is_valid_num(late) and core.is_valid_num(early)) else None
 
 def mo(s, N, dates=None):
-    '''return the N-period ratio of new/old values.'''
+    '''Return the N-period ratio series of new/old values.'''
     
     if N < 1:
         raise Exception('requires period > 0')
@@ -34,8 +34,8 @@ def mo(s, N, dates=None):
 
 def mo_days(s, days, dates=None):
     
-    '''Similar to mo(s,N), mo_days(s,days) calculate the new/old ratios along
-    the specified dates but the old is based upon calendar days rather than 
+    '''Similar to :code:`mo(s,N)`, :code:`mo_days(s,days)` calculates the new/old ratios along
+    the specified dates for each new, but each old-date is based upon calendar days rather than 
     periods.'''
     
     sf = s.f

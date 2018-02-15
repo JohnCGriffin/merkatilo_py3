@@ -14,6 +14,9 @@ def convert(s):
         
     
 def series_map(proc, *seriesz, missing_data_permitted=False, dts=None):
+    '''Analogous to Python's standard map operation, map the arity-compatible 
+    function :code:`proc` over one or more series returning a 
+    single value on each date.'''
     
     def missing_nums(nums):
         return len(nums) != sum((1 for n in nums if core.is_valid_num(n)))

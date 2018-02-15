@@ -7,7 +7,7 @@ import merkatilo.obs_series as obs_series
 
 def lo(name):
     
-    '''The lo(ID) command is a sample mechanism for importing time series.
+    '''The :code:`lo(ID)` command is a sample mechanism for importing time series.
     You will likely need to create your own implementation.'''
     
     fname = '{}/TIME_SERIES/{}/CLOSE'.format(os.getenv('HOME'),name)

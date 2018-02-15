@@ -29,11 +29,11 @@ def min_max_obs(s, dates=None):
     return min_ob, max_ob
 
 def min_ob(s, dates=None):
-    '''Shortcut to min_max_obs(s...)[0]'''
+    '''Shortcut to :code:`min_max_obs(s...)[0]`'''
     return min_max_obs(s,dates=dates)[0]
 
 def max_ob(s, dates=None):
-    '''Shortcut to min_max_obs(s...)[1]'''
+    '''Shortcut to :code:`min_max_obs(s...)[1]`'''
     return min_max_obs(s,dates=dates)[1]
 
 

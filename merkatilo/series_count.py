@@ -5,8 +5,7 @@ import merkatilo.core as core
 
 def series_count(s, dates=None):
     
-    '''Return the number of observations.  The typical
-    use of this is in unit testing.'''
+    '''Returns the number of observations in a series.'''
     
     dates = dates or core.current_dates()
     def valid(dt):

@@ -9,7 +9,7 @@ from merkatilo.private.abbreviate import abbreviate
 def series_filter(predicate, s):
     
     '''For each observation in series, check the predicate against
-    the value. Passing observations dictate existence in the output series.'''
+    the value. Qualifying observations pass through to the output series.'''
     
     base_f = s.f
     def f(dt):

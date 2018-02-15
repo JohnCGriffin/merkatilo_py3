@@ -1,4 +1,16 @@
 
+'''
+Arithmetic operations, i.e. add, sub ,mul, and div, take two arguments.
+Arguments are either series or numbers.  Numeric arguments are converted
+to constant series.  The result is a one for one arithmetic operation at 
+each date.
+
+Inequalities are similar but the first argument's value at a date is 
+copied to the output only if the inequality holds true.  For instance,
+to create a series representing 200 period gains in the Dow Industrials
+greater only where the gains exceede 15%: :code:`gt(mo(DJIA,200),0.15)`.
+
+'''
 __all__ = [ 'add', 'sub', 'mul', 'div', 'lt', 'le', 'gt', 'ge' ]
 
 import merkatilo.core as core

@@ -14,7 +14,7 @@ from merkatilo.series_binop import gt
 
 
 def gpa(s, dates=None):
-    '''calculate the annualized gain of series s over dates.'''
+    '''Calculate the annualized gain of series s over dates.'''
     dates = dates or core.current_dates()
     early = first_ob(s,dates=dates)
     late = last_ob(s,dates=dates)
@@ -63,7 +63,7 @@ class Performance(object):
 
 def investment_performance(s,*, alternate_investment=None, signals=None, dates=None):
     
-    '''Return interesting facts about an investment in a Performance object.'''
+    '''Return interesting facts about an investment in a :code:`Performance` object.'''
     
     dates = dates or core.current_dates()
     alternate_investment = alternate_investment or constant(1)

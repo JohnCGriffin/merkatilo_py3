@@ -7,8 +7,8 @@ from merkatilo.private.abbreviate import abbreviate
 
 def to_signals(s, dates=None):
 
-    '''Transform a series into non-repeating negative ones where the input is less than
-       zero and non-repeating ones where the input is non-negative.'''
+    '''Transform a series into non-repeating negative-one (-1) where the input is negative
+       non-repeating one (1) where the input is non-negative.'''
     
     dates = dates or core.current_dates()
     vals = list(map(s.f, dates.vec))

@@ -8,7 +8,7 @@ from merkatilo.private.abbreviate import abbreviate
 def ema(s, N, dates=None):
     
     '''An ema smoothes a series such that the current value is weighted by some fraction 
-    than or equal to one added to the previous value weighted by (1 - fraction).  The 
+    in (0..1) added to the previous value weighted by (1 - fraction).  The 
     fraction is calculated as (2/(N+1)).'''
     
     dates = dates or core.current_dates()

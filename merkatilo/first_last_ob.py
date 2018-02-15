@@ -4,7 +4,7 @@ __all__ = [ 'first_ob', 'last_ob' ]
 import merkatilo.core as core
 
 def first_ob(s, dates=None):
-    '''Return first available (dt,value) tuple'''
+    '''Return first available (dt,value) tuple.'''
     dates = dates or core.current_dates()
     f = s.f
     for dt in dates:
@@ -14,7 +14,7 @@ def first_ob(s, dates=None):
     return None
 
 def last_ob(s, dates=None):
-    '''Return last available (dt,value) tuple'''
+    '''Return last available (dt,value) tuple.'''
     dates = dates or core.current_dates()
     dv = dates.vec
     f = s.f

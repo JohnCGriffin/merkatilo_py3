@@ -25,8 +25,9 @@ def series_and(a,b):
 def series_or(a,b):
 
     '''Given two series, return a series such that the output value is the value
-    of the first input series if has a value, otherwise the value from the second
-    input series.'''
+    from the first input series if that value is available. Otherwise, the
+    the value from the second
+    input series is returned.'''
     
     af = a.f
     bf = b.f
