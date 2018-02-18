@@ -6,16 +6,16 @@
 Python3 Implementation of Merkatilo
 ===================================
 
-After having creating a considerable amount of very fast, complete, and huge
-technical analysis tools in C++/Python hybrids, I aimed for simplicity and
-minimalism.
-Thus, the merkatilo
-libraries are
-my most-used subset of functionality in single language implementations.  
-This is the Python3 (3.5+) implementation.  
+The merkatilo time-series library implementations address my 
+personal financial computing research requirements.
+This is the Python3 implementation.
+
+The purpose of this library is financial computing research and education, not trading
+with material funds at risk.  Use it accordingly.
 
 Library code resides at `Github <https://github.com/JohnCGriffin/merkatilo_py3>`_ under
-MIT licensing.
+MIT licensing.  Corrections, improvements, or other comments are welcome.
+Please include merkatilo in the subject line.
 
 John Griffin, griffinish at gmail
 
