@@ -6,9 +6,11 @@ from merkatilo.private.abbreviate import abbreviate
 
 def fudge(s, days=6):
     
-    '''fudge decorates a series such that the query by date will continue looking
-    backward until it finds a value up to the number of days specified, defaulting to 
-    six days.  Six days permits weekly and daily market data to align dates with ends of 
+    '''fudge decorates a series such that the query by date 
+    will continue looking backward until it finds a value,
+    up to the number of days specified, defaulting to 
+    six days.  Six days permits weekly and daily market 
+    data to align dates with ends of 
     months, quarters and years.'''
     
     sf = s.f

@@ -10,10 +10,12 @@ The merkatilo time-series library implementations address my
 personal financial computing research requirements.
 This is the Python3 implementation.
 
-The purpose of this library is financial computing research and education, not trading
-with material funds at risk.  Use it accordingly.
+The purpose of this library is financial computing research and
+education, not trading with material funds at risk.
+Use it accordingly.
 
-Library code resides at `Github <https://github.com/JohnCGriffin/merkatilo_py3>`_ under
+Library code resides at
+`Github <https://github.com/JohnCGriffin/merkatilo_py3>`_ under
 MIT licensing.  Corrections, improvements, or other comments are welcome.
 Please include merkatilo in the subject line.
 
@@ -41,7 +43,7 @@ The julian date coincides with Postgres’ idea of a julian.
 Here’s an example that loads the SPY ETF adjusted closing price, does a
 cross of that series with its 200-period moving average, generating
 buy (+1) and sell (-1) signals. Finally, it dumps them out in
-date order, like a dumped spreadsheet.
+date order, like a printed spreadsheet.
 
 .. code-block:: python
 

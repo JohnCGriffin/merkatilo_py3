@@ -34,9 +34,11 @@ def mo(s, N, dates=None):
 
 def mo_days(s, days, dates=None):
     
-    '''Similar to :code:`mo(s,N)`, :code:`mo_days(s,days)` calculates the new/old ratios along
-    the specified dates for each new, but each old-date is based upon calendar days rather than 
-    periods.'''
+    '''Similar to :code:`mo(s,N)`, :code:`mo_days(s,days)` calculates 
+    the new/old ratios along the specified dates for each new, but 
+    each old-date is based upon calendar days rather than periods.
+    If the calendar days back does not line up with a market day, the
+    value of most recent available earlier observation is selected.'''
     
     sf = s.f
     sf_old = (fudge(s)).f

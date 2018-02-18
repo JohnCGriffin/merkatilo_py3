@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'merkatilo'
-copyright = '2018, JCG'
-author = 'JCG'
+copyright = '2018, John Griffin'
+author = 'John Griffin'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -2,15 +2,19 @@
 __all__ = [ 'lo' ]
 
 import os
+import threading
 import merkatilo.core as core
 import merkatilo.obs_series as obs_series
 
-def lo(name):
-    
-    '''The :code:`lo(ID)` command is a sample mechanism for importing time series.
-    You will likely need to create your own implementation.'''
-    
-    fname = '{}/TIME_SERIES/{}/CLOSE'.format(os.getenv('HOME'),name)
+def __normalize_id(name):
+    name = name.upper()
+    if name.find("::") < 0:
+        name = '{}::CLOSE'.format(name)
+    return name
+
+def __default_loader(id):
+    normalized_id = __normalize_id(id)
+    fname = '{}/TIME_SERIES/{}'.format(os.getenv('HOME'), normalized_id)
     entries = []
     with open(fname) as f:
         for line in f:
@@ -20,5 +24,24 @@ def lo(name):
             except:
                 pass
     return obs_series.obs_to_series(entries, name=name)
+
+__local = threading.local()
+__local.loader = __default_loader
+
+# Return active loader with optional setting
+def loader(f=None):
+    result = __local.loader
+    if f:
+        __local.loader = f
+    return result
+
+def lo(id):
+    
+    '''The :code:`lo(ID)` command is a sample mechanism for 
+    importing time series.  You will likely need to create your 
+    own implementation of a loader and set it with
+    merkatilo.load.loader(your_function).'''
+
+    return __local.loader(id)
 
 
