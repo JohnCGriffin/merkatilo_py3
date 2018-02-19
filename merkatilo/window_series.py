@@ -40,17 +40,12 @@ class WindowSeriesTest(CommonTestingBase):
         for period in range(10,50,5):
             SMA_SERIES = sma(self.TEST_SERIES,period)
             CHECK_SERIES = window_series(self.TEST_SERIES, period, lambda xs:(sum(xs)/len(xs)))
-            f1 = SMA_SERIES.f
-            f2 = CHECK_SERIES.f
-            for dt in core.current_dates():
-                self.assertEqual(f1(dt),f2(dt))
+            self.verify_two_series(SMA_SERIES,CHECK_SERIES)
 
     def test_alternate_sma_calendar_dates(self):
         with core.date_scope(core.date_range("2013-1-1","2013-12-31")):
             SMA_SERIES = sma(self.TEST_SERIES,3)
             CHECK_SERIES = window_series(self.TEST_SERIES, 3, lambda xs:(sum(xs)/len(xs)))
-            f1 = SMA_SERIES.f
-            f2 = CHECK_SERIES.f
-            for dt in core.current_dates():
-                self.assertEqual(f1(dt),f2(dt))
+            self.verify_two_series(SMA_SERIES,CHECK_SERIES)
+
 

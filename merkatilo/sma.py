@@ -41,10 +41,4 @@ class SMATest(CommonTestingBase):
 
     def test_sma_3(self):
         SMA_3_SERIES = obs_to_series(SMA_3_OBS)
-        core.current_dates(core.dates(self.TEST_SERIES))
-        f1 = SMA_3_SERIES.f
-        f2 = sma(self.TEST_SERIES,3).f
-        for dt in core.current_dates():
-            f1_val = f1(dt)
-            f2_val = f2(dt)
-            self.assertEqual(f1_val, f2_val)
+        self.verify_two_series(sma(self.TEST_SERIES,3), SMA_3_SERIES)

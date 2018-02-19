@@ -60,7 +60,6 @@ class CrossTests(CommonTestingBase):
 
     def test_cross(self):
         CROSS_EMA_30_SERIES = obs_to_series(CROSS_EMA_30_OBS)
-        f1 = CROSS_EMA_30_SERIES.f
-        f2 = cross(slower=ema(self.TEST_SERIES,30), faster=self.TEST_SERIES).f
-        for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+        self.verify_two_series(cross(slower=ema(self.TEST_SERIES,30), faster=self.TEST_SERIES),
+                               CROSS_EMA_30_SERIES)
+

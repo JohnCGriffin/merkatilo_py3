@@ -8,6 +8,12 @@ import merkatilo.core as core
 
 class CommonTestingBase(unittest.TestCase):
 
+    def verify_two_series(self,a,b):
+        f1 = a.f
+        f2 = b.f
+        for dt in core.current_dates():
+            self.assertEqual(f1(dt),f2(dt))
+
     def setUp(self):
         self.TEST_SERIES = obs_to_series(TEST_SERIES_OBS)
         core.current_dates(core.dates(self.TEST_SERIES))

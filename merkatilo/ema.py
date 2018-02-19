@@ -39,8 +39,6 @@ class EMATest(CommonTestingBase):
 
     def test_ema_3(self):
         EMA_3_SERIES = obs_to_series(EMA_3_OBS)
-        f1 = EMA_3_SERIES.f
-        f2 = ema(self.TEST_SERIES,3).f
-        for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+        self.verify_two_series(ema(self.TEST_SERIES,3), EMA_3_SERIES)
+
 

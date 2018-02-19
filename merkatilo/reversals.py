@@ -52,9 +52,8 @@ class ReversalsTest(CommonTestingBase):
 
     def test_ema_3(self):
         REVERSALS_95_105_SERIES = obs_to_series(REVERSALS_95_105_OBS)
-        f1 = REVERSALS_95_105_SERIES.f
-        f2 = reversals(self.TEST_SERIES,up_factor=1.05,down_factor=.95).f
-        for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+        self.verify_two_series(reversals(self.TEST_SERIES,up_factor=1.05,down_factor=.95),
+                               REVERSALS_95_105_SERIES)
+
 
             

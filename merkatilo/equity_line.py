@@ -84,9 +84,6 @@ class EquitylineTests(CommonTestingBase):
                              cross(slower=ema(self.TEST_SERIES,10),
                                    faster=self.TEST_SERIES))
         EQUITYLINE_EMA_10_SERIES = obs_to_series(EQUITYLINE_EMA_10_OBS)
-        f1 = crossed.f
-        f2 = EQUITYLINE_EMA_10_SERIES.f
-        for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+        self.verify_two_series(crossed,EQUITYLINE_EMA_10_SERIES)
 
         

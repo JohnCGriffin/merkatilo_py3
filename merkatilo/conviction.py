@@ -48,8 +48,5 @@ class ConvictionTest(CommonTestingBase):
 
     def test_ema_3(self):
         MO_5_CONVICTION_4_SERIES = obs_to_series(MO_5_CONVICTION_4_OBS)
-        f1 = MO_5_CONVICTION_4_SERIES.f
-        f2 = conviction(mo(self.TEST_SERIES,5),4).f
-        for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+        self.verify_two_series(conviction(mo(self.TEST_SERIES,5),4), MO_5_CONVICTION_4_SERIES)
 
