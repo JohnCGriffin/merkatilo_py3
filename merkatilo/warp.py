@@ -19,7 +19,7 @@ def warp (s, N, dates=None):
 
     for (ndx, dt) in enumerate(dv):
         val = sf(dt)
-        if val:
+        if core.is_valid_num(val):
             new_ndx = ndx+N
             if 0 <= new_ndx < len(dv):
                 new_dt = dv[new_ndx]

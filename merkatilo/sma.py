@@ -22,6 +22,9 @@ def sma(s, N, dates=None):
         if core.is_valid_num(val):
             total += val
             consecutive += 1
+        else:
+            consecutive = 0
+            total = 0
         if consecutive > N:
             total -= vals[ndx-N]
         if consecutive >= N:
