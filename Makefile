@@ -22,3 +22,6 @@ clean: doc-clean
 		.mypy_cache/ \
 		private/__pycache__ private/*.pyc \
 		private/.mypy_cache 
+
+version:
+	@git describe --abbrev=0
