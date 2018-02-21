@@ -22,6 +22,7 @@ from merkatilo.sugar         import *
 from merkatilo.unrepeated    import *
 from merkatilo.volatility    import *
 from merkatilo.warp          import *
+from merkatilo.window_series import *
 
 __postimport = [ k for k in globals().keys() ]
 

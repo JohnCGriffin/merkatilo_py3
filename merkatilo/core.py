@@ -256,6 +256,7 @@ class vector_series(series):
                     jdate_to_text(ndx+first_date)))
             if not n:
                 vec[ndx] = normalize_val(n)
+        vec = tuple(vec)
         last_date = first_date + len(vec) - 1
         def myfunc(dt):
             return vec[dt-first_date] if (first_date <= dt <= last_date) else None
@@ -283,8 +284,8 @@ class dateset(object):
     '''A dateset wraps an ordered vector of jdate integers.  Generally
        one constructs a dateset via the "dates" function.'''
     
-    def __init__(self, vec, check_vector_validity=True):
-        self.vec = vec
+    def __init__(self, container, check_vector_validity=True):
+        self.vec = tuple(container) if isinstance(container,list) else container
         if check_vector_validity:
             if type(vec) != type([]):
                 raise Exception("dateset requires list of ordered dates")

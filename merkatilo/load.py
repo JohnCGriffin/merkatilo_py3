@@ -14,7 +14,8 @@ def __normalize_id(name):
 
 def __default_loader(id):
     normalized_id = __normalize_id(id)
-    fname = '{}/TIME_SERIES/{}'.format(os.getenv('HOME'), normalized_id)
+    ticker,subject = normalized_id.split('::')
+    fname = '{}/TIME_SERIES/{}/{}'.format(os.getenv('HOME'), ticker, subject)
     entries = []
     with open(fname) as f:
         for line in f:
@@ -23,7 +24,7 @@ def __default_loader(id):
                 entries.append((core.to_jdate(pair[0]),float(pair[1])))
             except:
                 pass
-    return obs_series.obs_to_series(entries, name=name)
+    return obs_series.obs_to_series(entries, name=normalized_id)
 
 __local = threading.local()
 __local.loader = __default_loader
@@ -40,7 +41,7 @@ def lo(id):
     '''The :code:`lo(ID)` command is a sample mechanism for 
     importing time series.  You will likely need to create your 
     own implementation of a loader and set it with
-    merkatilo.load.loader(your_function).'''
+    merkatilo.load.loader(your_function)'''
 
     return __local.loader(id)
 
