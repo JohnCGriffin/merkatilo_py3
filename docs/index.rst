@@ -70,6 +70,7 @@ and `Quandl <https://www.quandl.com/>`_.
    :caption: Contents:
 
    merkatilo.core
+   calibrate
    constant
    conviction
    cross

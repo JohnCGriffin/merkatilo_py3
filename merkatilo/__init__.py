@@ -1,6 +1,7 @@
 
 __preimport = [ k for k in globals().keys() ]
 
+from merkatilo.calibrate     import *
 from merkatilo.conviction    import *
 from merkatilo.core          import *
 from merkatilo.cross         import *
