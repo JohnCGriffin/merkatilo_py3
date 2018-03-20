@@ -18,6 +18,7 @@ import dump          as __imported_lib_dump
 import ema           as __imported_lib_ema
 import fudge         as __imported_lib_fudge
 import load          as __imported_lib_load
+import ma            as __imported_lib_ma
 import min_max       as __imported_lib_min_max
 import momentum      as __imported_lib_momentum
 import repeated      as __imported_lib_repeated
@@ -27,7 +28,6 @@ import series_filter as __imported_lib_series_filter
 import series_logic  as __imported_lib_series_logic
 import series_map    as __imported_lib_series_map
 import signals       as __imported_lib_signals
-import sma           as __imported_lib_sma
 import sugar         as __imported_lib_sugar
 import unrepeated    as __imported_lib_unrepeated
 import volatility    as __imported_lib_volatility
@@ -50,6 +50,7 @@ __all__ = __reexports( __imported_lib_conviction,
                        __imported_lib_ema,
                        __imported_lib_fudge,
                        __imported_lib_load,
+                       __imported_lib_ma,
                        __imported_lib_min_max,
                        __imported_lib_momentum,
                        __imported_lib_repeated,
@@ -59,7 +60,6 @@ __all__ = __reexports( __imported_lib_conviction,
                        __imported_lib_series_logic,
                        __imported_lib_series_map,
                        __imported_lib_signals,
-                       __imported_lib_sma,
                        __imported_lib_sugar,
                        __imported_lib_unrepeated,
                        __imported_lib_volatility,

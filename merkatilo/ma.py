@@ -1,10 +1,10 @@
 
-__all__ = [ 'sma' ]
+__all__ = [ 'sma', 'ma' ]
 
 import merkatilo.core as core
 from merkatilo.private.series_dates_values import series_dates_values
 
-def sma(s, N, dates=None):
+def ma(s, N, dates=None):
 
     '''Create running N-period arithmetic average of input series.'''
     
@@ -31,14 +31,17 @@ def sma(s, N, dates=None):
             outv[dt - fd] = (total / N)
         
     return core.vector_series(outv, fd, name = "SMA({})".format(N))
+
+# temporary compatibility
+sma = ma
     
 #=================================
 
 from merkatilo.common_testing_base import CommonTestingBase, obs_to_series
-from merkatilo.private.test_support import SMA_3_OBS
+from merkatilo.private.test_support import MA_3_OBS
 
 class SMATest(CommonTestingBase):
 
-    def test_sma_3(self):
-        SMA_3_SERIES = obs_to_series(SMA_3_OBS)
-        self.verify_two_series(sma(self.TEST_SERIES,3), SMA_3_SERIES)
+    def test_ma_3(self):
+        MA_3_SERIES = obs_to_series(MA_3_OBS)
+        self.verify_two_series(ma(self.TEST_SERIES,3), MA_3_SERIES)

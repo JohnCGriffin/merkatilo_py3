@@ -1,5 +1,5 @@
 
-__all__ = [ 'TEST_SERIES_OBS', 'EMA_3_OBS', 'SMA_3_OBS',
+__all__ = [ 'TEST_SERIES_OBS', 'EMA_3_OBS', 'MA_3_OBS',
             'MO_3_OBS', 'MO_DAYS_200_OBS', 'approx',
             'EQUITYLINE_EMA_10_OBS', 'REVERSALS_95_105' ]
 
@@ -11,7 +11,7 @@ def load_test_obs(name):
 
 TEST_SERIES_OBS       = load_test_obs('test-series')
 EMA_3_OBS             = load_test_obs('ema-3')
-SMA_3_OBS             = load_test_obs('sma-3')
+MA_3_OBS              = load_test_obs('ma-3')
 MO_3_OBS              = load_test_obs('mo-3')
 MO_DAYS_200_OBS       = load_test_obs('mo-days-200')
 CROSS_EMA_30_OBS      = load_test_obs('cross-ema-30')

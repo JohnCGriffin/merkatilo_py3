@@ -32,19 +32,19 @@ def window_series (s, N, proc, dates=None, missing_data_permitted=False):
 #==========================================
 
 from merkatilo.common_testing_base import CommonTestingBase
-from merkatilo.sma import sma
+from merkatilo.ma import ma
 
 class WindowSeriesTest(CommonTestingBase):
 
-    def test_alternate_sma(self):
+    def test_alternate_ma(self):
         for period in range(10,50,5):
-            SMA_SERIES = sma(self.TEST_SERIES,period)
+            SMA_SERIES = ma(self.TEST_SERIES,period)
             CHECK_SERIES = window_series(self.TEST_SERIES, period, lambda xs:(sum(xs)/len(xs)))
             self.verify_two_series(SMA_SERIES,CHECK_SERIES)
 
-    def test_alternate_sma_calendar_dates(self):
+    def test_alternate_ma_calendar_dates(self):
         with core.date_scope(core.date_range("2013-1-1","2013-12-31")):
-            SMA_SERIES = sma(self.TEST_SERIES,3)
+            SMA_SERIES = ma(self.TEST_SERIES,3)
             CHECK_SERIES = window_series(self.TEST_SERIES, 3, lambda xs:(sum(xs)/len(xs)))
             self.verify_two_series(SMA_SERIES,CHECK_SERIES)
 

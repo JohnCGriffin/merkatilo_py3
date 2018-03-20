@@ -9,6 +9,7 @@ from merkatilo.dump          import *
 from merkatilo.ema           import *
 from merkatilo.fudge         import *
 from merkatilo.load          import *
+from merkatilo.ma            import *
 from merkatilo.min_max       import *
 from merkatilo.momentum      import *
 from merkatilo.repeated      import *
@@ -18,7 +19,6 @@ from merkatilo.series_filter import *
 from merkatilo.series_logic  import *
 from merkatilo.series_map    import *
 from merkatilo.signals       import *
-from merkatilo.sma           import *
 from merkatilo.sugar         import *
 from merkatilo.unrepeated    import *
 from merkatilo.volatility    import *
