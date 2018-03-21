@@ -1,20 +1,18 @@
 
-__all__ = [ 'ema' ]
+__all__ = [ 'ema', 'fractional' ]
 
 import merkatilo.core as core
 from merkatilo.private.abbreviate import abbreviate
 
 
-def ema(s, N, dates=None):
+def fractional(s, fraction, dates=None):
     
-    '''An ema smoothes a series such that the current value is weighted by some fraction 
-    in (0..1) added to the previous value weighted by (1 - fraction).  The 
-    fraction is calculated as (2/(N+1)).'''
+    '''A fractuibak smoothes a series such that the current value is weighted by some fraction 
+    in (0..1) added to the previous value weighted by (1 - fraction).'''
     
     dates = dates or core.current_dates()
     fd,ld = s.first_date(),s.last_date()
     outv = [ None for dt in range(fd,ld+1) ]
-    fraction = 2/(N+1)
     remainder = 1 - fraction
     prev = None
     f = s.f
@@ -25,7 +23,17 @@ def ema(s, N, dates=None):
                   else val)
         outv[dt - fd] = newVal
         prev = newVal
-    return core.vector_series(outv, fd, name="EMA({},{})".format(abbreviate(s),N))
+    return core.vector_series(outv, fd, name="fractional({},{})".format(abbreviate(s),fraction))
+
+
+def ema(s, N, dates=None):
+    
+    '''An ema smoothes a series such that the current value is weighted by some fraction 
+    in (0..1) added to the previous value weighted by (1 - fraction).  The 
+    fraction is calculated as (2/(N+1)).'''
+
+    return fractional(s, 2/(N+1), dates=dates)
+
 
 
 
@@ -41,4 +49,8 @@ class EMATest(CommonTestingBase):
         EMA_3_SERIES = obs_to_series(EMA_3_OBS)
         self.verify_two_series(ema(self.TEST_SERIES,3), EMA_3_SERIES)
 
+    def test_ema_fractional(self):
+        f = fractional(self.TEST_SERIES,.5)
+        self.verify_two_series(ema(self.TEST_SERIES,3), f)
+        
 
