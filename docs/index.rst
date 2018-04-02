@@ -33,7 +33,7 @@ the argument to many functions that beget new series instances.
 
 The functions operating transforming series to new series come in two styles,
 those oriented to a sequence of dates, and those that require no dateset.
-For example, the sma procedure creates a new series representing a running
+For example, the :code:`ma` procedure creates a new series representing a running
 average of the input series over some dateset. However, :code:`add` sums two input
 series on a date without respect to any date sequence.
 
@@ -50,7 +50,7 @@ date order, like a printed spreadsheet.
    from merkatilo import *
 
    SPY = lo_set_dates('SPY')
-   smoothed = sma(SPY,200)
+   smoothed = ma(SPY,200)
    my_signals = cross(slower=smoothed, faster=SPY)
    dump(SPY, my_signals)
 
@@ -70,6 +70,7 @@ and `Quandl <https://www.quandl.com/>`_.
    :caption: Contents:
 
    merkatilo.core
+   allocation_equity_line
    calibrate
    constant
    conviction
@@ -81,6 +82,7 @@ and `Quandl <https://www.quandl.com/>`_.
    first_last_ob
    fudge
    load
+   ma
    min_max
    momentum
    obs_series
@@ -92,7 +94,6 @@ and `Quandl <https://www.quandl.com/>`_.
    series_logic
    series_map
    signals
-   sma
    sugar
    unrepeated
    volatility

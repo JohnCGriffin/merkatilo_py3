@@ -99,6 +99,10 @@ def allocations_to_portfolios(allocations):
 
 def allocation_equity_line (allocations,*,initial_value=100):
 
+    '''Generate an equity line based upon weighted portfolios on multiple dates, either
+       changing the weight or rebalancing.  The first value of the equity line begins
+       at the first allocation date.'''
+
     portfolios = allocations_to_portfolios(allocations)
 
     holdings_by_date = { p.date:p.holdings for p in portfolios }

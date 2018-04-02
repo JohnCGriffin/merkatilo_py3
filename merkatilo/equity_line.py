@@ -11,8 +11,8 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
     '''The point of most signal generation is to go in and out of invested position
     on some series, optionally buying an alternate investment such as short-duration debt.
     The equity_line series represents the value of the investment after treating signals
-    as entrance and exit points during the dateset indicated.  Until the first signal
-    is encountered, the value specified by :code:`initial_value` is repeated.'''
+    as entrance and exit points during the dateset indicated.
+    '''
 
     dates = dates or core.current_dates()
     dv = dates.vec
