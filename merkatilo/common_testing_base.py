@@ -12,7 +12,7 @@ class CommonTestingBase(unittest.TestCase):
         f1 = a.f
         f2 = b.f
         for dt in core.current_dates():
-            self.assertEqual(f1(dt),f2(dt))
+            self.assertEqual(approx(f1(dt)),approx(f2(dt)))
 
     def setUp(self):
         self.TEST_SERIES = obs_to_series(TEST_SERIES_OBS)

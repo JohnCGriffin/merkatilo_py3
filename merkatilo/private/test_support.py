@@ -9,6 +9,8 @@ def load_test_obs(name):
     return [ (a,float(b)) for (a,b) in [ tuple(line.split()) for line in lines ]]
 
 
+AAA_SERIES_OBS        = load_test_obs('aaa')
+BBB_SERIES_OBS        = load_test_obs('bbb')
 TEST_SERIES_OBS       = load_test_obs('test-series')
 EMA_3_OBS             = load_test_obs('ema-3')
 MA_3_OBS              = load_test_obs('ma-3')
@@ -21,4 +23,4 @@ REVERSALS_95_105_OBS  = load_test_obs('reversals-95-105')
 
 def approx(n):
     big = 1000000000
-    return round(big * n) / big
+    return (round(big * n) / big) if n else n

@@ -34,6 +34,8 @@ def equity_line(s, signals, initial_value=100, alternate_investment=None, dates=
         raise Exception("signal series is empty")
 
     for (dt,alt,inv,sig) in zip(dv,alt_vals,inv_vals,sig_vals):
+        if dt < first_sig_ob[0]:
+            continue
         if sig or (core.is_valid_num(alt) and core.is_valid_num(inv)):
             change = None
             if not core.is_valid_num(inv):
