@@ -105,6 +105,7 @@ def jdate_to_ymd (julian):
     
     '''Convert jdate to year,month,day tuple.'''
     
+    # http://www.stiltner.org/book/bookcalc.htm
     JD = round(julian)
     L = JD + 68569
     M = (L * 4) // 146097
