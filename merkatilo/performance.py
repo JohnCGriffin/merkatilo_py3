@@ -5,7 +5,7 @@ import merkatilo.core as core
 from merkatilo.first_last_ob import first_ob, last_ob
 from merkatilo.constant import constant
 from merkatilo.signals import to_signals
-from merkatilo.drawdown import drawdown_residual
+from merkatilo.drawdown import series_drawdown
 from merkatilo.volatility import volatility
 from merkatilo.equity_line import equity_line
 from merkatilo.repeated import repeated
@@ -74,7 +74,7 @@ def investment_performance(s,*, alternate_investment=None, signals=None, dates=N
         equity = equity_line(s,signals,alternate_investment=alternate_investment) if signals else s
 
         vol_res = 1 - volatility(equity)
-        dd_res = drawdown_residual(equity)
+        dd_res = series_drawdown(equity).residual()
         annualized = gpa(equity)
 
         return Performance(volatility_residual=vol_res,
