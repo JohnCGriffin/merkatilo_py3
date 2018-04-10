@@ -7,7 +7,7 @@ from merkatilo.private.abbreviate import abbreviate
 
 def fractional(s, fraction, dates=None):
     
-    '''A fractuibak smoothes a series such that the current value is weighted by some fraction 
+    '''A fractional smoothes a series such that the current value is weighted by some fraction 
     in (0..1) added to the previous value weighted by (1 - fraction).'''
     
     dates = dates or core.current_dates()
