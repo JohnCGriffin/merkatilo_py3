@@ -1,5 +1,5 @@
 
-__all__ = [ 'allocation_equity_line' ]
+__all__ = [ 'allocation_equity_line', 'Allocation', 'Portion' ]
 
 import merkatilo.core as core
 from merkatilo.constant import constant
