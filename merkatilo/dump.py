@@ -17,6 +17,6 @@ def dump(*seriess, first=None, last=None, dts = None):
     ld = (last or dts.last_date())
     for dt in range(fd,ld+1):
         nums = [ f(dt) for f in sfs ]
-        if sum([ (1 if n else 0) for n in nums ]):
-            rounded = map(lambda n : (format(n) if n else '            '), nums)
+        if sum([ (1 if core.is_valid_num(n) else 0) for n in nums ]):
+            rounded = map(lambda n : (format(n) if core.is_valid_num(n) else '            '), nums)
             print("{} {}".format(core.jdate_to_text(dt), ' '.join(rounded)))

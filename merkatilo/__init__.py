@@ -14,6 +14,7 @@ from merkatilo.load                   import *
 from merkatilo.ma                     import *
 from merkatilo.min_max                import *
 from merkatilo.momentum               import *
+from merkatilo.obs_series             import *
 from merkatilo.performance            import *
 from merkatilo.repeated               import *
 from merkatilo.series_binop           import *
