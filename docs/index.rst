@@ -72,6 +72,7 @@ and `Quandl <https://www.quandl.com/>`_.
    merkatilo.core
    allocation_equity_line
    calibrate
+   capture
    constant
    conviction
    cross

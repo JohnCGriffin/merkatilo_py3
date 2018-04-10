@@ -1,5 +1,5 @@
 
-__all__ = [ 'series_drawdown' ]
+__all__ = [ 'series_drawdown', 'series_drawdowns' ]
 
 import functools
 import merkatilo.core as core
