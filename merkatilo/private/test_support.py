@@ -1,6 +1,6 @@
 
 __all__ = [ 'TEST_SERIES_OBS', 'EMA_3_OBS', 'MA_3_OBS',
-            'MO_3_OBS', 'MO_DAYS_200_OBS', 'approx',
+            'MO_3_OBS', 'MO_DAYS_200_OBS', 'approx', 'BENCHMARK_OBS',
             'EQUITYLINE_EMA_10_OBS', 'REVERSALS_95_105' ]
 
 def load_test_obs(name):
@@ -9,6 +9,7 @@ def load_test_obs(name):
     return [ (a,float(b)) for (a,b) in [ tuple(line.split()) for line in lines ]]
 
 
+BENCHMARK_OBS         = load_test_obs('benchmark')
 AAA_SERIES_OBS        = load_test_obs('aaa')
 BBB_SERIES_OBS        = load_test_obs('bbb')
 TEST_SERIES_OBS       = load_test_obs('test-series')
