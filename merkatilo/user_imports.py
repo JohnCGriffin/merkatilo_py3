@@ -22,6 +22,7 @@ import ma            as __imported_lib_ma
 import min_max       as __imported_lib_min_max
 import momentum      as __imported_lib_momentum
 import repeated      as __imported_lib_repeated
+import reversals     as __imported_lib_reversals
 import series_binop  as __imported_lib_series_binop
 import series_count  as __imported_lib_series_count
 import series_filter as __imported_lib_series_filter
@@ -54,6 +55,7 @@ __all__ = __reexports( __imported_lib_conviction,
                        __imported_lib_min_max,
                        __imported_lib_momentum,
                        __imported_lib_repeated,
+                       __imported_lib_reversals,
                        __imported_lib_series_binop,
                        __imported_lib_series_count,
                        __imported_lib_series_filter,
