@@ -28,3 +28,6 @@ clean: doc-clean
 
 version:
 	@git describe --abbrev=0
+
+bench:
+	cd merkatilo && PYTHONPATH=.. python3 standard_bench.py

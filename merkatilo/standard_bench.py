@@ -35,6 +35,7 @@ def standard_bench():
     measure("math-add", lambda: add(bm,bm))
     measure("mo", lambda: mo(bm,10))
     measure("mo-days", lambda: mo_days(bm,10))
+    measure("prepend", lambda: prepend(ts, surrogate=bm))
     measure("repeated", lambda: repeated(bm))
     measure("reversal", lambda: reversals(bm))
     measure("signals", lambda: to_signals(sigs))
