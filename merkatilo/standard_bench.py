@@ -33,6 +33,7 @@ def standard_bench():
     measure("fudge", lambda: fudge(bm))
     measure("ma", lambda: ma(bm,10))
     measure("math-add", lambda: add(bm,bm))
+    measure("min-max", lambda: (min_max_obs(bm) and constant(1)))
     measure("mo", lambda: mo(bm,10))
     measure("mo-days", lambda: mo_days(bm,10))
     measure("prepend", lambda: prepend(ts, surrogate=bm))
@@ -40,6 +41,8 @@ def standard_bench():
     measure("reversal", lambda: reversals(bm))
     measure("signals", lambda: to_signals(sigs))
     measure("unrepeated", lambda: unrepeated(bm))
+    measure("volatility", lambda: volatility(bm) and constant(1))
+    measure("warp", lambda: warp(bm,10))
     
 
 if __name__ == "__main__":

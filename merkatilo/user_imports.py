@@ -12,6 +12,7 @@
 #
 
 import conviction    as __imported_lib_conviction
+import constant      as __imported_lib_constant
 import core          as __imported_lib_core
 import cross         as __imported_lib_cross
 import dump          as __imported_lib_dump
@@ -46,6 +47,7 @@ def __reexports (*libs):
     return [ name for name in sorted(d.keys()) ]
 
 __all__ = __reexports( __imported_lib_conviction,
+                       __imported_lib_constant,
                        __imported_lib_core,
                        __imported_lib_cross,
                        __imported_lib_dump,

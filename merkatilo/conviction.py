@@ -28,6 +28,7 @@ def conviction(s, N, dates=None):
     ld = dates.last_date()
     outv = [ None for dt in range(fd,ld+1) ]
 
+    # warp 
     for (sig,dt) in zip(sigv,dv[N:]):
         if sig:
             outv[dt - fd] = sig
