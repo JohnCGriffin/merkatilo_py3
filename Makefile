@@ -1,6 +1,6 @@
 
 test: /tmp/merkatilo-test-data/test-series.txt
-	cd merkatilo && PYTHONPATH=.. python3 -m unittest `fgrep -l 'def test' *.py`
+	@cd merkatilo && PYTHONPATH=.. python3 -m unittest `fgrep -l 'def test' *.py`
 
 zip: clean
 	zip -r merkatilo.zip merkatilo
@@ -30,4 +30,4 @@ version:
 	@git describe --abbrev=0
 
 bench:
-	cd merkatilo && PYTHONPATH=.. python3 standard_bench.py
+	@cd merkatilo && PYTHONPATH=.. python3 standard_bench.py
