@@ -1,5 +1,5 @@
 # merkatilo-py3
-Merkatilo implemented in Python3 - [Merkatilo API](http://merkatilo.org/merkatilo-py3/index.html)
+[Merkatilo](http://merkatilo.org) implemented in Python3 
 
 ## Purpose
 
